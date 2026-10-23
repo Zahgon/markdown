@@ -1,0 +1,209 @@
+[
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testBasicFence",
+  "source": "A paragraph before a fenced code block:\n\n```\nFenced code block\n```",
+  "expected": "<p>A paragraph before a fenced code block:</p>\n<pre><code>Fenced code block\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedCodeAttrNameSanitizedNoCodehiliteWithAttrList",
+  "source": "``` { .python x><svg/onload=alert(1) }\n# Some python code\n```",
+  "expected": "<pre><code class=\"language-python\" x_svg_onload=\"alert(1)\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedCodeCurlyInAttrs",
+  "source": "``` { data-test=\"{}\" }\n# Some python code\n```",
+  "expected": "<pre><code data-test=\"{}\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedCodeEscapedAttrs",
+  "source": "``` { .\"weird #\"foo bar=\">baz }\n# Some python code\n```",
+  "expected": "<pre id=\"&quot;foo\"><code class=\"language-&quot;weird\" bar=\"&quot;&gt;baz\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedCodeMismatchedCurlyInAttrs",
+  "source": "``` { data-test=\"{}\" } }\n# Some python code\n```\n```\ntest\n```",
+  "expected": "<p>``` { data-test=\"{}\" } }</p>\n<h1>Some python code</h1>\n<pre><code></code></pre>\n<p>test\n```</p>",
+  "extensions": [
+   "fenced_code",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedIdAndLangAndClassInAttr",
+  "source": "``` { .python #foo .bar }\n# Some python code\n```",
+  "expected": "<pre id=\"foo\" class=\"bar\"><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedIdAndLangInAttr",
+  "source": "``` { .python #foo }\n# Some python code\n```",
+  "expected": "<pre id=\"foo\"><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedIdInAttr",
+  "source": "``` { #foo }\n# Some python code\n```",
+  "expected": "<pre id=\"foo\"><code># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedLanguageIdAndPygmentsDisabledInAttrNoCodehilite",
+  "source": "``` { .python #foo use_pygments=False }\n# Some python code\n```",
+  "expected": "<pre id=\"foo\"><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedLanguageIdAndPygmentsEnabledInAttrNoCodehilite",
+  "source": "``` { .python #foo use_pygments=True }\n# Some python code\n```",
+  "expected": "<pre id=\"foo\"><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedLanguageInAttr",
+  "source": "``` {.python}\n# Some python code\n```",
+  "expected": "<pre><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedLanguageNoCodehiliteWithAttrList",
+  "source": "``` { .python foo=bar }\n# Some python code\n```",
+  "expected": "<pre><code class=\"language-python\" foo=\"bar\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedLanguageNoDot",
+  "source": "``` python\n# Some python code\n```",
+  "expected": "<pre><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedLanguagePygmentsDisabledInAttrNoCodehiliteWithAttrList",
+  "source": "``` { .python foo=bar use_pygments=False }\n# Some python code\n```",
+  "expected": "<pre><code class=\"language-python\" foo=\"bar\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedLanguagePygmentsEnabledInAttrNoCodehiliteWithAttrList",
+  "source": "``` { .python foo=bar use_pygments=True }\n# Some python code\n```",
+  "expected": "<pre><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedLanguageWithDot",
+  "source": "``` .python\n# Some python code\n```",
+  "expected": "<pre><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedMultipleClassesInAttr",
+  "source": "``` {.python .foo .bar}\n# Some python code\n```",
+  "expected": "<pre class=\"foo bar\"><code class=\"language-python\"># Some python code\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testFencedTildes",
+  "source": "~~~\n# Arbitrary code\n``` # these backticks will not close the block\n~~~",
+  "expected": "<pre><code># Arbitrary code\n``` # these backticks will not close the block\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.testNestedFence",
+  "source": "````\n\n```\n````",
+  "expected": "<pre><code>\n```\n</code></pre>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_fenced_code.TestFencedCode.test_fenced_code_in_raw_html",
+  "source": "<details>\n```\nBegone placeholders!\n```\n</details>",
+  "expected": "<details>\n\n<pre><code>Begone placeholders!\n</code></pre>\n\n</details>",
+  "extensions": [
+   "fenced_code"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

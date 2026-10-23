@@ -1,0 +1,380 @@
+[
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "It's fun. What's fun?",
+  "expected": "<p>It&rsquo;s fun. What&rsquo;s fun?</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "\"Isn't this fun\"? --- she said...",
+  "expected": "<p>&ldquo;Isn&rsquo;t this fun&rdquo;? &mdash; she said&hellip;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "\"'Quoted' words in a larger quote.\"",
+  "expected": "<p>&ldquo;&lsquo;Quoted&rsquo; words in a larger quote.&rdquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "'Quoted \"words\" in a larger quote.'",
+  "expected": "<p>&lsquo;Quoted &ldquo;words&rdquo; in a larger quote.&rsquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "\"Quoted words at the 'end.'\"",
+  "expected": "<p>&ldquo;Quoted words at the &lsquo;end.&rsquo;&rdquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "'Quoted words at the \"end.\"'",
+  "expected": "<p>&lsquo;Quoted words at the &ldquo;end.&rdquo;&rsquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "(He replied, \"She said 'Hello.'\")",
+  "expected": "<p>(He replied, &ldquo;She said &lsquo;Hello.&rsquo;&rdquo;)</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "<span>He replied, \"She said 'Hello.'\"</span>",
+  "expected": "<p><span>He replied, &ldquo;She said &lsquo;Hello.&rsquo;&rdquo;</span></p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "\"quoted\" text and **bold \"quoted\" text**",
+  "expected": "<p>&ldquo;quoted&rdquo; text and <strong>bold &ldquo;quoted&rdquo; text</strong></p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "'quoted' text and **bold 'quoted' text**",
+  "expected": "<p>&lsquo;quoted&rsquo; text and <strong>bold &lsquo;quoted&rsquo; text</strong></p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "em-dashes (---) and ellipes (...)",
+  "expected": "<p>em-dashes (&mdash;) and ellipes (&hellip;)</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "\"[Link](http://example.com)\" --- she said.",
+  "expected": "<p>&ldquo;<a href=\"http://example.com\">Link</a>&rdquo; &mdash; she said.</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "\"Ellipsis within quotes...\"",
+  "expected": "<p>&ldquo;Ellipsis within quotes&hellip;&rdquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_basic",
+  "source": "*Custer*'s Last Stand",
+  "expected": "<p><em>Custer</em>&rsquo;s Last Stand</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_code_blocks",
+  "source": "    Also skip \"code\" 'blocks'\n    foo -- bar --- baz ...",
+  "expected": "<pre><code>Also skip \"code\" 'blocks'\nfoo -- bar --- baz ...\n</code></pre>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_code_spans",
+  "source": "Skip `\"code\" -- --- 'spans' ...`.",
+  "expected": "<p>Skip <code>\"code\" -- --- 'spans' ...</code>.</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_escaped",
+  "source": "Escaped \\-- ndash",
+  "expected": "<p>Escaped -- ndash</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_escaped",
+  "source": "\\'Escaped\\' \\\"quotes\\\"",
+  "expected": "<p>'Escaped' \"quotes\"</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_escaped",
+  "source": "Escaped ellipsis\\...",
+  "expected": "<p>Escaped ellipsis...</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_escaped",
+  "source": "'Escaped \\\"quotes\\\" in real ones'",
+  "expected": "<p>&lsquo;Escaped \"quotes\" in real ones&rsquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_escaped",
+  "source": "\\'\"Real\" quotes in escaped ones\\'",
+  "expected": "<p>'&ldquo;Real&rdquo; quotes in escaped ones'</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_escaped_attr",
+  "source": "![x\"x](x)",
+  "expected": "<p><img alt=\"x&quot;x\" src=\"x\" /></p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_horizontal_rule",
+  "source": "--- -- ---",
+  "expected": "<hr />",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_wrapping_line",
+  "source": "A line that 'wraps' with\n*emphasis* at the beginning of the next line.",
+  "expected": "<p>A line that &lsquo;wraps&rsquo; with\n<em>emphasis</em> at the beginning of the next line.</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_years",
+  "source": "1440--80's",
+  "expected": "<p>1440&ndash;80&rsquo;s</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_years",
+  "source": "1440--'80s",
+  "expected": "<p>1440&ndash;&rsquo;80s</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_years",
+  "source": "1440---'80s",
+  "expected": "<p>1440&mdash;&rsquo;80s</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_years",
+  "source": "1960's",
+  "expected": "<p>1960&rsquo;s</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_years",
+  "source": "one two '60s",
+  "expected": "<p>one two &rsquo;60s</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmarty.test_years",
+  "source": "'60s",
+  "expected": "<p>&rsquo;60s</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmartyAndToc.test_smarty_and_toc",
+  "source": "# *Foo* --- `bar`",
+  "expected": "<h1 id=\"foo-bar\"><em>Foo</em> &mdash; <code>bar</code></h1>",
+  "extensions": [
+   "smarty",
+   "toc"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmartyAngledQuotes.test_angled_quotes",
+  "source": "<<hello>>",
+  "expected": "<p>&laquo;hello&raquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {
+   "smarty": {
+    "smart_angled_quotes": true
+   }
+  },
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmartyAngledQuotes.test_angled_quotes",
+  "source": "Кавычки-<<ёлочки>>",
+  "expected": "<p>Кавычки-&laquo;ёлочки&raquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {
+   "smarty": {
+    "smart_angled_quotes": true
+   }
+  },
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmartyAngledQuotes.test_angled_quotes",
+  "source": "Anführungszeichen->>Chevrons<<",
+  "expected": "<p>Anführungszeichen-&raquo;Chevrons&laquo;</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {
+   "smarty": {
+    "smart_angled_quotes": true
+   }
+  },
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_smarty.TestSmartyCustomSubstitutions.test_custom_substitutions",
+  "source": "<< The \"Unicode char of the year 2014\"\nis the 'mdash': ---\nMust not be confused with 'ndash'  (--) ... >>",
+  "expected": "<p>[ The &bdquo;Unicode char of the year 2014&ldquo;\nis the &sbquo;mdash&lsquo;: —\nMust not be confused with &sbquo;ndash&lsquo;  (–) … ]</p>",
+  "extensions": [
+   "smarty"
+  ],
+  "configs": {
+   "smarty": {
+    "smart_angled_quotes": true,
+    "substitutions": {
+     "ndash": "–",
+     "mdash": "—",
+     "ellipsis": "…",
+     "left-single-quote": "&sbquo;",
+     "right-single-quote": "&lsquo;",
+     "left-double-quote": "&bdquo;",
+     "right-double-quote": "&ldquo;",
+     "left-angle-quote": "[",
+     "right-angle-quote": "]"
+    }
+   }
+  },
+  "output_format": "xhtml"
+ }
+]

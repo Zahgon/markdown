@@ -1,9 +1,8 @@
 Installing Python-Markdown
 ==========================
 
-As an Admin/Root user on your system do:
+Build and install the `markdown` command with Cargo:
 
-    pip install markdown
+    cargo install --path .
 
-Or for more specific instructions, view the documentation in `docs/install.md`
-or on the website at <https://Python-Markdown.github.io/install/>.
+Or build it in place with `cargo build --release`; the binary is `target/release/markdown`.

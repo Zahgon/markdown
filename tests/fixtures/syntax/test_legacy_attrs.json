@@ -1,0 +1,22 @@
+[
+ {
+  "name": "extensions.test_legacy_attrs.TestLegacyAtrributes.testLegacyAttrs",
+  "source": "# Header {@id=inthebeginning}\n\nNow, let's try something *inline{@class=special}*, to see if it works\n\n@id=TABLE.OF.CONTENTS}\n\n\n* {@id=TABLEOFCONTENTS}\n\n\nOr in the middle of the text {@id=TABLEOFCONTENTS}\n\n{@id=tableofcontents}\n\n[![{@style=float: left; margin: 10px; border:\nnone;}](http://fourthought.com/images/ftlogo.png \"Fourthought\nlogo\")](http://fourthought.com/)\n\n![img{@id=foo}][img]\n\n[img]: http://example.com/i.jpg",
+  "expected": "<h1 id=\"inthebeginning\">Header </h1>\n<p>Now, let's try something <em class=\"special\">inline</em>, to see if it works</p>\n<p>@id=TABLE.OF.CONTENTS}</p>\n<ul>\n<li id=\"TABLEOFCONTENTS\"></li>\n</ul>\n<p id=\"TABLEOFCONTENTS\">Or in the middle of the text </p>\n<p id=\"tableofcontents\"></p>\n<p><a href=\"http://fourthought.com/\"><img alt=\"\" src=\"http://fourthought.com/images/ftlogo.png\" style=\"float: left; margin: 10px; border: none;\" title=\"Fourthought logo\" /></a></p>\n<p><img alt=\"img\" id=\"foo\" src=\"http://example.com/i.jpg\" /></p>",
+  "extensions": [
+   "legacy_attrs"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_legacy_attrs.TestLegacyAtrributes.testLegacyAttrsSanitizesName",
+  "source": "text {@x><svg/onload=alert(1)=y} more",
+  "expected": "<p x_svg_onload_alert_1_=\"y\">text  more</p>",
+  "extensions": [
+   "legacy_attrs"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

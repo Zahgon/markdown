@@ -1,0 +1,66 @@
+[
+ {
+  "name": "inline.test_raw_html.TestRawHtml.test_angle_brackets_in_attributes",
+  "source": "<span data-tip-txt=\"<kbd>Ctrl</kbd>\">Anything</span>",
+  "expected": "<p><span data-tip-txt=\"<kbd>Ctrl</kbd>\">Anything</span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_raw_html.TestRawHtml.test_inline_html_angle_brackets",
+  "source": "<span>e<c</span>",
+  "expected": "<p><span>e&lt;c</span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_raw_html.TestRawHtml.test_inline_html_angle_brackets",
+  "source": "<span>e>c</span>",
+  "expected": "<p><span>e&gt;c</span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_raw_html.TestRawHtml.test_inline_html_angle_brackets",
+  "source": "<span>e < c</span>",
+  "expected": "<p><span>e &lt; c</span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_raw_html.TestRawHtml.test_inline_html_angle_brackets",
+  "source": "<span>e > c</span>",
+  "expected": "<p><span>e &gt; c</span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_raw_html.TestRawHtml.test_inline_html_backslashes",
+  "source": "<img src=\"..\\..\\foo.png\">",
+  "expected": "<p><img src=\"..\\..\\foo.png\"></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_raw_html.TestRawHtml.test_markdown_nested_in_inline_comment",
+  "source": "Example: <!-- [**Bold link**](http://example.com) -->",
+  "expected": "<p>Example: <!-- <a href=\"http://example.com\"><strong>Bold link</strong></a> --></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_raw_html.TestRawHtml.test_noname_tag",
+  "source": "<span></></span>",
+  "expected": "<p><span>&lt;/&gt;</span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

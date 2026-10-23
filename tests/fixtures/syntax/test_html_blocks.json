@@ -1,0 +1,1058 @@
+[
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_additional_tail_cases",
+  "source": "`</dev` z > q\n\n`</ab c` z\n\n`</dev/` > q\n\n`</dev/null` z > q\n\n`</ab c>` z",
+  "expected": "<p><code>&lt;/dev</code> z &gt; q</p>\n<p><code>&lt;/ab c</code> z</p>\n<p><code>&lt;/dev/</code> &gt; q</p>\n<p><code>&lt;/dev/null</code> z &gt; q</p>\n<p><code>&lt;/ab c&gt;</code> z</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_adjacent_raw_blocks",
+  "source": "<p>A raw paragraph.</p>\n<p>A second raw paragraph.</p>",
+  "expected": "<p>A raw paragraph.</p>\n<p>A second raw paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_adjacent_raw_blocks_with_blank_lines",
+  "source": "<p>A raw paragraph.</p>\n\n<p>A second raw paragraph.</p>",
+  "expected": "<p>A raw paragraph.</p>\n\n<p>A second raw paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_amperstand",
+  "source": "AT&T & AT&amp;T",
+  "expected": "<p>AT&amp;T &amp; AT&amp;T</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_auto_links_dont_break_parser",
+  "source": "<https://example.com>\n\n<email@example.com>",
+  "expected": "<p><a href=\"https://example.com\">https://example.com</a></p>\n<p><a href=\"&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;\">&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_blank_lines_in_raw",
+  "source": "<p>\n\n    A raw paragraph...\n\n    with many blank lines.\n\n</p>",
+  "expected": "<p>\n\n    A raw paragraph...\n\n    with many blank lines.\n\n</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_bogus_comment",
+  "source": "<!invalid>",
+  "expected": "<p>&lt;!invalid&gt;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_bogus_comment_endtag",
+  "source": "</#invalid>",
+  "expected": "<p>&lt;/#invalid&gt;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_charref",
+  "source": "&sect;",
+  "expected": "<p>&sect;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_closed_startendtag",
+  "source": "<hr />",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_closed_startendtag_with_attrs",
+  "source": "<hr id=\"foo\" class=\"bar\" />",
+  "expected": "<hr id=\"foo\" class=\"bar\" />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_closed_startendtag_without_space",
+  "source": "<hr/>",
+  "expected": "<hr/>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_code_span",
+  "source": "`<p>code span</p>`",
+  "expected": "<p><code>&lt;p&gt;code span&lt;/p&gt;</code></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_code_span_open_gt",
+  "source": "*bar* `<` *foo*",
+  "expected": "<p><em>bar</em> <code>&lt;</code> <em>foo</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_after_closed_inline_html",
+  "source": "<span>foo</span>\n<!-- comment -->",
+  "expected": "<p><span>foo</span></p>\n<!-- comment -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_after_unclosed_inline_html",
+  "source": "<span>foo\n<!-- comment -->",
+  "expected": "<p><span>foo</p>\n<!-- comment -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_after_unclosed_inline_tag_in_code_span",
+  "source": "Use `<b>` for bold.\n<!-- comment -->",
+  "expected": "<p>Use <code>&lt;b&gt;</code> for bold.</p>\n<!-- comment -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_after_void_inline_html",
+  "source": "<img src=\"a.png\">\n<!-- comment -->",
+  "expected": "<p><img src=\"a.png\"></p>\n<!-- comment -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_in_code_block",
+  "source": "    <!-- *foo* -->",
+  "expected": "<pre><code>&lt;!-- *foo* --&gt;\n</code></pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_in_code_span",
+  "source": "`<!-- *foo* -->`",
+  "expected": "<p><code>&lt;!-- *foo* --&gt;</code></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_in_inline_html_after_blank_line",
+  "source": "<span>\n\n<!-- comment -->\n\n</span>",
+  "expected": "<p><span></p>\n<!-- comment -->\n\n<p></span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_in_inline_html_own_line",
+  "source": "<span>\n<!-- comment -->\n</span>",
+  "expected": "<p><span>\n<!-- comment -->\n</span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_in_inline_html_own_line_before_endtag",
+  "source": "<span>\n<!-- comment --></span>",
+  "expected": "<p><span>\n<!-- comment --></span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_in_inline_html_same_line_as_start_tag",
+  "source": "<span><!-- comment -->\n</span>",
+  "expected": "<p><span><!-- comment -->\n</span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_comment_with_blank_line_in_inline_html",
+  "source": "<span>\n<!--\nmulti\n\nline\n-->\n</span>",
+  "expected": "<p><span></p>\n<!--\nmulti\n\nline\n-->\n<p></span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_entityref",
+  "source": "&#167;",
+  "expected": "<p>&#167;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_hr_only_end",
+  "source": "*emphasis1*\n</hr>\n*emphasis2*",
+  "expected": "<p><em>emphasis1</em>\n</hr>\n<em>emphasis2</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_hr_only_start",
+  "source": "*emphasis1*\n<hr>\n*emphasis2*",
+  "expected": "<p><em>emphasis1</em></p>\n<hr>\n<p><em>emphasis2</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_hr_self_close",
+  "source": "*emphasis1*\n<hr/>\n*emphasis2*",
+  "expected": "<p><em>emphasis1</em></p>\n<hr/>\n<p><em>emphasis2</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_hr_start_and_end",
+  "source": "*emphasis1*\n<hr></hr>\n*emphasis2*",
+  "expected": "<p><em>emphasis1</em></p>\n<hr>\n<p></hr>\n<em>emphasis2</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_hr_with_content",
+  "source": "*emphasis1*\n<hr>\n**content**\n</hr>\n*emphasis2*",
+  "expected": "<p><em>emphasis1</em></p>\n<hr>\n<p><strong>content</strong>\n</hr>\n<em>emphasis2</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_inline_script_tags",
+  "source": "Text `<script>` more *text*.\n\n<div>\n*foo*\n</div>\n\n<div>\n\nbar\n\n</div>\n\nA new paragraph with a closing `</script>` tag.",
+  "expected": "<p>Text <code>&lt;script&gt;</code> more <em>text</em>.</p>\n<div>\n*foo*\n</div>\n\n<div>\n\nbar\n\n</div>\n\n<p>A new paragraph with a closing <code>&lt;/script&gt;</code> tag.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_invalid_comment_end",
+  "source": "<!-- This comment is malformed and never closes -- >\nSome content after the bad comment.",
+  "expected": "<p>&lt;!-- This comment is malformed and never closes -- &gt;\nSome content after the bad comment.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_issue_1590",
+  "source": "<table>\n<!--[if mso]>-->\n<td>foo</td>\n<!--<!endif]-->\n<td>bar</td>\n</table>",
+  "expected": "<table>\n<!--[if mso]>-->\n<td>foo</td>\n<!--<!endif]-->\n<td>bar</td>\n</table>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_multiline_attributes",
+  "source": "<div id=\"foo\"\n     class=\"bar\">\n    text\n</div>\n\n<hr class=\"foo\"\n    id=\"bar\" >",
+  "expected": "<div id=\"foo\"\n     class=\"bar\">\n    text\n</div>\n\n<hr class=\"foo\"\n    id=\"bar\" >",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_multiline_markdown_with_code_span",
+  "source": "A paragraph with a block-level\n`<p>code span</p>`, which is\nat the start of a line.",
+  "expected": "<p>A paragraph with a block-level\n<code>&lt;p&gt;code span&lt;/p&gt;</code>, which is\nat the start of a line.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_multiline_raw",
+  "source": "<p>\n    A raw paragraph\n    with multiple lines.\n</p>",
+  "expected": "<p>\n    A raw paragraph\n    with multiple lines.\n</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_multiple_bogus_comments_no_hang",
+  "source": "`</` and `</`",
+  "expected": "<p><code>&lt;/</code> and <code>&lt;/</code></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_multiple_raw_single_line",
+  "source": "<p>*foo*</p><div>*bar*</div>",
+  "expected": "<p>*foo*</p>\n<div>*bar*</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_multiple_raw_single_line_with_pi",
+  "source": "<p>*foo*</p><?php echo '>'; ?>",
+  "expected": "<p>*foo*</p>\n<?php echo '>'; ?>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_multiple_unclosed_comments_no_hang",
+  "source": "<!-- and <!--",
+  "expected": "<p>&lt;!-- and &lt;!--</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_charref",
+  "source": "<p>&sect;</p>",
+  "expected": "<p>&sect;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_closed_startendtag",
+  "source": "<div><hr /></div>",
+  "expected": "<div><hr /></div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_entityref",
+  "source": "<p>&#167;</p>",
+  "expected": "<p>&#167;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_indented_raw_block",
+  "source": "<div>\n    <p>A raw paragraph.</p>\n</div>",
+  "expected": "<div>\n    <p>A raw paragraph.</p>\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_inline_one_line",
+  "source": "<p><em>foo</em><br></p>",
+  "expected": "<p><em>foo</em><br></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_raw_block",
+  "source": "<div>\n<p>A raw paragraph.</p>\n</div>",
+  "expected": "<div>\n<p>A raw paragraph.</p>\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_raw_blocks",
+  "source": "<div>\n<p>A raw paragraph.</p>\n<p>A second raw paragraph.</p>\n</div>",
+  "expected": "<div>\n<p>A raw paragraph.</p>\n<p>A second raw paragraph.</p>\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_raw_blocks_with_blank_lines",
+  "source": "<div>\n\n<p>A raw paragraph.</p>\n\n<p>A second raw paragraph.</p>\n\n</div>",
+  "expected": "<div>\n\n<p>A raw paragraph.</p>\n\n<p>A second raw paragraph.</p>\n\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_raw_one_line",
+  "source": "<div><p>*foo*</p></div>",
+  "expected": "<div><p>*foo*</p></div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_nested_startendtag",
+  "source": "<div><hr></div>",
+  "expected": "<div><hr></div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_no_hang_issue_1586",
+  "source": "Test `<!--[if mso]>` and `<!--[if !mso]>`",
+  "expected": "<p>Test <code>&lt;!--[if mso]&gt;</code> and <code>&lt;!--[if !mso]&gt;</code></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_noname_tag",
+  "source": "<div>\n</>\n</div>",
+  "expected": "<div>\n</>\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_not_actually_cdata",
+  "source": "<![",
+  "expected": "<p>&lt;![</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_attributes",
+  "source": "<p id=\"foo\", class=\"bar baz\", style=\"margin: 15px; line-height: 1.5; text-align: center;\">text</p>",
+  "expected": "<p id=\"foo\", class=\"bar baz\", style=\"margin: 15px; line-height: 1.5; text-align: center;\">text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_attributes_nested",
+  "source": "<div id=\"foo, class=\"bar\", style=\"background: #ffe7e8; border: 2px solid #e66465;\">\n    <p id=\"baz\", style=\"margin: 15px; line-height: 1.5; text-align: center;\">\n        <img scr=\"../foo.jpg\" title=\"with 'quoted' text.\" valueless_attr weirdness=\"<i>foo</i>\" />\n    </p>\n</div>",
+  "expected": "<div id=\"foo, class=\"bar\", style=\"background: #ffe7e8; border: 2px solid #e66465;\">\n    <p id=\"baz\", style=\"margin: 15px; line-height: 1.5; text-align: center;\">\n        <img scr=\"../foo.jpg\" title=\"with 'quoted' text.\" valueless_attr weirdness=\"<i>foo</i>\" />\n    </p>\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_block_preceded_by_markdown_code_span_with_unclosed_block_tag",
+  "source": "A paragraph with a block-level code span: `<div>`.\n\n<p>*not markdown*</p>\n\nThis is *markdown*",
+  "expected": "<p>A paragraph with a block-level code span: <code>&lt;div&gt;</code>.</p>\n<p>*not markdown*</p>\n\n<p>This is <em>markdown</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_cdata_code_span",
+  "source": "`<![`\n\n<div>\nfoo\n</div>",
+  "expected": "<p><code>&lt;![</code></p>\n<div>\nfoo\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_cdata_indented",
+  "source": "<![CDATA[\n\n    document.write(\">\");\n\n]]>",
+  "expected": "<![CDATA[\n\n    document.write(\">\");\n\n]]>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_cdata_one_line",
+  "source": "<![CDATA[ document.write(\">\"); ]]>",
+  "expected": "<![CDATA[ document.write(\">\"); ]]>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_cdata_one_line_followed_by_text",
+  "source": "<![CDATA[ document.write(\">\"); ]]>*bar*",
+  "expected": "<![CDATA[ document.write(\">\"); ]]>\n<p><em>bar</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_cdata_with_blank_lines",
+  "source": "<![CDATA[\n\ndocument.write(\">\");\n\n]]>",
+  "expected": "<![CDATA[\n\ndocument.write(\">\");\n\n]]>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_indented",
+  "source": "<!--\n\n    *foo*\n\n-->",
+  "expected": "<!--\n\n    *foo*\n\n-->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_indented_with_tag",
+  "source": "<!--\n\n    <tag>\n\n-->",
+  "expected": "<!--\n\n    <tag>\n\n-->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_nested",
+  "source": "<div>\n<!-- *foo* -->\n</div>",
+  "expected": "<div>\n<!-- *foo* -->\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_one_line",
+  "source": "<!-- *foo* -->",
+  "expected": "<!-- *foo* -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_one_line_followed_by_html",
+  "source": "<!-- *foo* --><p>*bar*</p>",
+  "expected": "<!-- *foo* -->\n<p>*bar*</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_one_line_followed_by_text",
+  "source": "<!-- *foo* -->*bar*",
+  "expected": "<!-- *foo* -->\n<p><em>bar</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_one_line_with_tag",
+  "source": "<!-- <tag> -->",
+  "expected": "<!-- <tag> -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_trailing_whitespace",
+  "source": "<!-- *foo* --> ",
+  "expected": "<!-- *foo* -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_with_blank_lines",
+  "source": "<!--\n\n*foo*\n\n-->",
+  "expected": "<!--\n\n*foo*\n\n-->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_with_blank_lines_first_line",
+  "source": "<!-- *foo*\n\n-->",
+  "expected": "<!-- *foo*\n\n-->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_with_blank_lines_last_line",
+  "source": "<!--\n\n*foo* -->",
+  "expected": "<!--\n\n*foo* -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_comment_with_blank_lines_with_tag",
+  "source": "<!--\n\n<tag>\n\n-->",
+  "expected": "<!--\n\n<tag>\n\n-->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_declaration_code_span",
+  "source": "`<!`\n\n<div>\nfoo\n</div>",
+  "expected": "<p><code>&lt;!</code></p>\n<div>\nfoo\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_declaration_one_line",
+  "source": "<!DOCTYPE html>",
+  "expected": "<!DOCTYPE html>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_declaration_one_line_followed_by_text",
+  "source": "<!DOCTYPE html>*bar*",
+  "expected": "<!DOCTYPE html>\n<p><em>bar</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_empty",
+  "source": "<p></p>",
+  "expected": "<p></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_empty_blank_line",
+  "source": "<p>\n\n</p>",
+  "expected": "<p>\n\n</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_empty_newline",
+  "source": "<p>\n</p>",
+  "expected": "<p>\n</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_empty_space",
+  "source": "<p> </p>",
+  "expected": "<p> </p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_html5",
+  "source": "<section>\n    <header>\n        <hgroup>\n            <h1>Hello :-)</h1>\n        </hgroup>\n    </header>\n    <figure>\n        <img src=\"image.png\" alt=\"\" />\n        <figcaption>Caption</figcaption>\n    </figure>\n    <footer>\n        <p>Some footer</p>\n    </footer>\n</section>",
+  "expected": "<section>\n    <header>\n        <hgroup>\n            <h1>Hello :-)</h1>\n        </hgroup>\n    </header>\n    <figure>\n        <img src=\"image.png\" alt=\"\" />\n        <figcaption>Caption</figcaption>\n    </figure>\n    <footer>\n        <p>Some footer</p>\n    </footer>\n</section>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_indent_four_spaces",
+  "source": "    <p>code block</p>",
+  "expected": "<pre><code>&lt;p&gt;code block&lt;/p&gt;\n</code></pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_indent_one_space",
+  "source": " <p>A *raw* paragraph.</p>",
+  "expected": "<p>A *raw* paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_indent_three_spaces",
+  "source": "   <p>A *raw* paragraph.</p>",
+  "expected": "<p>A *raw* paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_indent_two_spaces",
+  "source": "  <p>A *raw* paragraph.</p>",
+  "expected": "<p>A *raw* paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_missing_close_bracket",
+  "source": "<foo",
+  "expected": "<p>&lt;foo</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_multiline_cdata",
+  "source": "<![CDATA[\ndocument.write(\">\");\n]]>",
+  "expected": "<![CDATA[\ndocument.write(\">\");\n]]>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_multiline_comment",
+  "source": "<!--\n*foo*\n-->",
+  "expected": "<!--\n*foo*\n-->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_multiline_comment_first_line",
+  "source": "<!-- *foo*\n-->",
+  "expected": "<!-- *foo*\n-->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_multiline_comment_last_line",
+  "source": "<!--\n*foo* -->",
+  "expected": "<!--\n*foo* -->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_multiline_comment_with_tag",
+  "source": "<!--\n<tag>\n-->",
+  "expected": "<!--\n<tag>\n-->",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_multiline_declaration",
+  "source": "<!DOCTYPE html PUBLIC\n  \"-//W3C//DTD XHTML 1.1//EN\"\n  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">",
+  "expected": "<!DOCTYPE html PUBLIC\n  \"-//W3C//DTD XHTML 1.1//EN\"\n  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_multiline_processing_instruction",
+  "source": "<?php\necho '>';\n?>",
+  "expected": "<?php\necho '>';\n?>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_multiple_p_no_end_tag",
+  "source": "<p>*text*'\n\n<p>more *text*",
+  "expected": "<p>*text*'\n\n<p>more *text*",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_nested_inline",
+  "source": "<div>\n    <p>\n        <span>*text*</span>\n    </p>\n</div>",
+  "expected": "<div>\n    <p>\n        <span>*text*</span>\n    </p>\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_nested_inline_with_blank_lines",
+  "source": "<div>\n\n    <p>\n\n        <span>*text*</span>\n\n    </p>\n\n</div>",
+  "expected": "<div>\n\n    <p>\n\n        <span>*text*</span>\n\n    </p>\n\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_nested_p_no_end_tag",
+  "source": "<div><p>*text*</div>",
+  "expected": "<div><p>*text*</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_one_line_followed_by_span",
+  "source": "<p>*foo*</p><span>*bar*</span>",
+  "expected": "<p>*foo*</p>\n<p><span><em>bar</em></span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_one_line_followed_by_text",
+  "source": "<p>*foo*</p>*bar*",
+  "expected": "<p>*foo*</p>\n<p><em>bar</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_open_bracket_followed_by_space",
+  "source": "< foo",
+  "expected": "<p>&lt; foo</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_open_bracket_only",
+  "source": "<",
+  "expected": "<p>&lt;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_p_no_end_tag",
+  "source": "<p>*text*",
+  "expected": "<p>*text*",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_p_no_end_tag_followed_by_blank_line",
+  "source": "<p>*raw text*'\n\nStill part of *raw* text.",
+  "expected": "<p>*raw text*'\n\nStill part of *raw* text.",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_paragraph",
+  "source": "<p>A raw paragraph.</p>",
+  "expected": "<p>A raw paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_pre_tag",
+  "source": "Preserve whitespace in raw html\n\n<pre>\nclass Foo():\n    bar = 'bar'\n\n    @property\n    def baz(self):\n        return self.bar\n</pre>",
+  "expected": "<p>Preserve whitespace in raw html</p>\n<pre>\nclass Foo():\n    bar = 'bar'\n\n    @property\n    def baz(self):\n        return self.bar\n</pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_pre_tag_nested_escaped_html",
+  "source": "<pre>\n&lt;p&gt;foo&lt;/p&gt;\n</pre>",
+  "expected": "<pre>\n&lt;p&gt;foo&lt;/p&gt;\n</pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_processing_instruction_code_span",
+  "source": "`<?php`\n\n<div>\nfoo\n</div>",
+  "expected": "<p><code>&lt;?php</code></p>\n<div>\nfoo\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_processing_instruction_indented",
+  "source": "<?php\n\n    echo '>';\n\n?>",
+  "expected": "<?php\n\n    echo '>';\n\n?>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_processing_instruction_one_line",
+  "source": "<?php echo '>'; ?>",
+  "expected": "<?php echo '>'; ?>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_processing_instruction_one_line_followed_by_text",
+  "source": "<?php echo '>'; ?>*bar*",
+  "expected": "<?php echo '>'; ?>\n<p><em>bar</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_processing_instruction_with_blank_lines",
+  "source": "<?php\n\necho '>';\n\n?>",
+  "expected": "<?php\n\necho '>';\n\n?>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_skip_inline_markdown",
+  "source": "<p>A *raw* paragraph.</p>",
+  "expected": "<p>A *raw* paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_span",
+  "source": "<span>*inline*</span>",
+  "expected": "<p><span><em>inline</em></span></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_surrounded_by_Markdown",
+  "source": "Some *Markdown* text.\n\n<p>*Raw* HTML.</p>\n\nMore *Markdown* text.",
+  "expected": "<p>Some <em>Markdown</em> text.</p>\n<p>*Raw* HTML.</p>\n\n<p>More <em>Markdown</em> text.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_surrounded_by_text_without_blank_lines",
+  "source": "Some *Markdown* text.\n<p>*Raw* HTML.</p>\nMore *Markdown* text.",
+  "expected": "<p>Some <em>Markdown</em> text.</p>\n<p>*Raw* HTML.</p>\n<p>More <em>Markdown</em> text.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_unclosed_tag_in_code_span",
+  "source": "`<div`.\n\n<div>\nhello\n</div>",
+  "expected": "<p><code>&lt;div</code>.</p>\n<div>\nhello\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_unclosed_tag_in_code_span_space",
+  "source": "` <div `.\n\n<div>\nhello\n</div>",
+  "expected": "<p><code>&lt;div</code>.</p>\n<div>\nhello\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_uppercase",
+  "source": "<DIV>*foo*</DIV>",
+  "expected": "<DIV>*foo*</DIV>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_uppercase_multiline",
+  "source": "<DIV>\n*foo*\n</DIV>",
+  "expected": "<DIV>\n*foo*\n</DIV>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_raw_with_markdown_blocks",
+  "source": "<div>\n    Not a Markdown paragraph.\n\n    * Not a list item.\n    * Another non-list item.\n\n    Another non-Markdown paragraph.\n</div>",
+  "expected": "<div>\n    Not a Markdown paragraph.\n\n    * Not a list item.\n    * Another non-list item.\n\n    Another non-Markdown paragraph.\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_script_tags",
+  "source": "<script>\n*random stuff* <div> &amp;\n</script>\n\n<style>\n**more stuff**\n</style>",
+  "expected": "<script>\n*random stuff* <div> &amp;\n</script>\n\n<style>\n**more stuff**\n</style>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_startendtag",
+  "source": "<hr>",
+  "expected": "<hr>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_startendtag_with_attrs",
+  "source": "<hr id=\"foo\" class=\"bar\">",
+  "expected": "<hr id=\"foo\" class=\"bar\">",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_startendtag_with_space",
+  "source": "<hr >",
+  "expected": "<hr >",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_stress_comment_handling",
+  "source": "`</` <!-- `<!--[if mso]>` and <!-- </> and `<!--[if mso]>`\n\n<!-- and <!-- `<!--[if mso]>` and </> `</` and `<!--[if mso]>`\n\n<!-- Real comment -->\n\n`<!--[if mso]>` `</` `<!--[if mso]>` and </> <!-- and <!--\n\n</> `<!--[if mso]>` `</` <!--  and <!--  and `<!--[if mso]>`",
+  "expected": "<p><code>&lt;/</code> &lt;!-- <code>&lt;!--[if mso]&gt;</code> and &lt;!-- &lt;/&gt; and <code>&lt;!--[if mso]&gt;</code></p>\n<p>&lt;!-- and &lt;!-- <code>&lt;!--[if mso]&gt;</code> and &lt;/&gt; <code>&lt;/</code> and <code>&lt;!--[if mso]&gt;</code></p>\n<!-- Real comment -->\n<p><code>&lt;!--[if mso]&gt;</code> <code>&lt;/</code> <code>&lt;!--[if mso]&gt;</code> and &lt;/&gt; &lt;!-- and &lt;!--</p>\n<p>&lt;/&gt; <code>&lt;!--[if mso]&gt;</code> <code>&lt;/</code> &lt;!--  and &lt;!--  and <code>&lt;!--[if mso]&gt;</code></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_text_links_ignored",
+  "source": "https://example.com\n\nemail@example.com",
+  "expected": "<p>https://example.com</p>\n<p>email@example.com</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_unclosed_comment",
+  "source": "<!-- unclosed comment\n\n*not* a comment",
+  "expected": "<p>&lt;!-- unclosed comment</p>\n<p><em>not</em> a comment</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_unclosed_endtag",
+  "source": "`</`\n\n<div>\n<!--[if mso]>-->\n<p>foo</p>\n<!--<!endif]-->\n</div>",
+  "expected": "<p><code>&lt;/</code></p>\n<div>\n<!--[if mso]>-->\n<p>foo</p>\n<!--<!endif]-->\n</div>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_unclosed_script_tag",
+  "source": "<script>\n*random stuff* <div> &amp;\n\nStill part of the *script* tag",
+  "expected": "<script>\n*random stuff* <div> &amp;\n\nStill part of the *script* tag",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_unterminated_endtag",
+  "source": "foo </bar\n\nbaz",
+  "expected": "<p>foo &lt;/bar</p>\n<p>baz</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_html_blocks.TestHTMLBlocks.test_unterminated_endtag_in_code_span",
+  "source": "Run `cmd 2</dev/null` here.\n\nThis paragraph should not disappear.",
+  "expected": "<p>Run <code>cmd 2&lt;/dev/null</code> here.</p>\n<p>This paragraph should not disappear.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

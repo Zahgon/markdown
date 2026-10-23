@@ -1,0 +1,58 @@
+[
+ {
+  "name": "extensions.test_legacy_em.TestLegacyEm.test_complex_emphasis_underscore",
+  "source": "This is text __bold _italic bold___ with more text",
+  "expected": "<p>This is text <strong>bold <em>italic bold</em></strong> with more text</p>",
+  "extensions": [
+   "legacy_em"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_legacy_em.TestLegacyEm.test_complex_emphasis_underscore_mid_word",
+  "source": "This is text __bold_italic bold___ with more text",
+  "expected": "<p>This is text <strong>bold<em>italic bold</em></strong> with more text</p>",
+  "extensions": [
+   "legacy_em"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_legacy_em.TestLegacyEm.test_complex_multple_underscore_type",
+  "source": "traced ___along___ bla __blocked__ if other ___or___",
+  "expected": "<p>traced <strong><em>along</em></strong> bla <strong>blocked</strong> if other <strong><em>or</em></strong></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_legacy_em.TestLegacyEm.test_complex_multple_underscore_type_variant2",
+  "source": "on the __1-4 row__ of the AP Combat Table ___and___ receive",
+  "expected": "<p>on the <strong>1-4 row</strong> of the AP Combat Table <strong><em>and</em></strong> receive</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_legacy_em.TestLegacyEm.test_legacy_emphasis",
+  "source": "_connected_words_",
+  "expected": "<p><em>connected</em>words_</p>",
+  "extensions": [
+   "legacy_em"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_legacy_em.TestLegacyEm.test_legacy_strong",
+  "source": "__connected__words__",
+  "expected": "<p><strong>connected</strong>words__</p>",
+  "extensions": [
+   "legacy_em"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

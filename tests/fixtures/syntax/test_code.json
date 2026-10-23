@@ -1,0 +1,26 @@
+[
+ {
+  "name": "inline.test_code.TestCode.test_code_comments",
+  "source": "Some code `<!--` that is not HTML `-->` in a paragraph.\n\nSome code `<!--`\nthat is not HTML `-->`\nin a paragraph.",
+  "expected": "<p>Some code <code>&lt;!--</code> that is not HTML <code>--&gt;</code> in a paragraph.</p>\n<p>Some code <code>&lt;!--</code>\nthat is not HTML <code>--&gt;</code>\nin a paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_code.TestCode.test_code_html",
+  "source": "<p>html</p>\n\nParagraph with code: `<p>test</p>`.",
+  "expected": "<p>html</p>\n\n<p>Paragraph with code: <code>&lt;p&gt;test&lt;/p&gt;</code>.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_code.TestCode.test_noname_tag",
+  "source": "`</>`",
+  "expected": "<p><code>&lt;/&gt;</code></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

@@ -1,0 +1,178 @@
+[
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_angle_with_mixed_title_quotes",
+  "source": "![Text](<http://link.com/with spaces '\"and quotes\".png> 'and title') more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/with spaces '&quot;and quotes&quot;.png\" title=\"and title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_misc",
+  "source": "![Poster](http://humane_man.jpg \"The most humane man.\")",
+  "expected": "<p><img alt=\"Poster\" src=\"http://humane_man.jpg\" title=\"The most humane man.\" /></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_misc_blank",
+  "source": "![Blank]()",
+  "expected": "<p><img alt=\"Blank\" src=\"\" /></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_misc_img",
+  "source": "![Image](http://humane man.jpg)",
+  "expected": "<p><img alt=\"Image\" src=\"http://humane man.jpg\" /></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_misc_img_title",
+  "source": "![Image](http://humane man.jpg \"The most humane man.\")",
+  "expected": "<p><img alt=\"Image\" src=\"http://humane man.jpg\" title=\"The most humane man.\" /></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_misc_ref",
+  "source": "![Poster][]\n\n[Poster]:http://humane_man.jpg \"The most humane man.\"",
+  "expected": "<p><img alt=\"Poster\" src=\"http://humane_man.jpg\" title=\"The most humane man.\" /></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_mixed_title_quotes1",
+  "source": "![Text](http://link.com/'.png\"title\") more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/'.png\" title=\"title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_mixed_title_quotes2",
+  "source": "![Text](http://link.com/\".png'title') more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/&quot;.png\" title=\"title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_mixed_title_quotes3",
+  "source": "![Text](http://link.com/with spaces.png'\"and quotes\" 'and title') more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/with spaces.png\" title=\"&quot;and quotes&quot; 'and title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_mixed_title_quotes4",
+  "source": "![Text](http://link.com/with spaces'.png\"and quotes\" 'and title\") more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/with spaces'.png\" title=\"and quotes&quot; 'and title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_mixed_title_quotes5",
+  "source": "![Text](http://link.com/with spaces .png'\"and quotes\" 'and title') more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/with spaces .png\" title=\"&quot;and quotes&quot; 'and title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_mixed_title_quotes6",
+  "source": "![Text](http://link.com/with spaces \"and quotes\".png 'and title') more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/with spaces &quot;and quotes&quot;.png\" title=\"and title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_nested_round_brackets",
+  "source": "![Text](http://link.com/(((((((()))))))()).png) more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/(((((((()))))))()).png\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_nested_square_brackets",
+  "source": "![Text[[[[[[[]]]]]]][]](http://link.com/image.png) more text",
+  "expected": "<p><img alt=\"Text[[[[[[[]]]]]]][]\" src=\"http://link.com/image.png\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_short_ref",
+  "source": "![ref]\n\n[ref]: ./image.jpg",
+  "expected": "<p><img alt=\"ref\" src=\"./image.jpg\" /></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_short_ref_in_link",
+  "source": "[![img ref]](http://example.com/)\n\n[img ref]: ./image.jpg",
+  "expected": "<p><a href=\"http://example.com/\"><img alt=\"img ref\" src=\"./image.jpg\" /></a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_single_quote",
+  "source": "![test](link\"notitle.png)",
+  "expected": "<p><img alt=\"test\" src=\"link&quot;notitle.png\" /></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_uneven_brackets_with_titles1",
+  "source": "![Text](http://link.com/(.png\"title\") more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/(.png\" title=\"title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_uneven_brackets_with_titles2",
+  "source": "![Text](http://link.com/('.png\"title\") more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/('.png\" title=\"title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_uneven_brackets_with_titles3",
+  "source": "![Text](http://link.com/(.png\"title)\") more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/(.png\" title=\"title)\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_uneven_brackets_with_titles4",
+  "source": "![Text](http://link.com/(.png \"title\") more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/(.png\" title=\"title\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_images.TestAdvancedImages.test_uneven_brackets_with_titles5",
+  "source": "![Text](http://link.com/(.png \"title)\") more text",
+  "expected": "<p><img alt=\"Text\" src=\"http://link.com/(.png\" title=\"title)\" /> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

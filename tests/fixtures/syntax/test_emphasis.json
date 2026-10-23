@@ -1,0 +1,274 @@
+[
+ {
+  "name": "inline.test_emphasis.TestCommonMark.test_commonmark",
+  "source": "*foo bar*\n\na * foo bar*\n\n<!-- CommonMark uses nbsp to test this, we instead just put test in front to avoid list parsing -->\ntest * a *\n\nfoo*bar*\n\n5*6*78\n\n_foo bar_\n\n_ foo bar_\n\na_\"foo\"_\n\nfoo_bar_\n\n5_6_78\n\nпристаням_стремятся_\n\naa_\"bb\"_cc\n\nfoo-_(bar)_\n\n_foo*\n\n*foo bar *\n\n*foo bar\n*\n\n*foo*bar\n\n_foo bar _\n\n_(_foo)\n\n_(_foo_)_\n\n_foo_bar\n\n_пристаням_стремятся\n\n_foo_bar_baz_\n\n_(bar)_.\n\n**foo bar**\n\n** foo bar**\n\nfoo**bar**\n\n__foo bar__\n\n__ foo bar__\n\n__\nfoo bar__\n\na__\"foo\"__\n\nfoo__bar__\n\n5__6__78\n\nпристаням__стремятся__\n\n__foo, __bar__, baz__\n\nfoo-__(bar)__\n\n**foo bar **\n\n*(**foo**)*\n\n**Gomphocarpus (*Gomphocarpus physocarpus*, syn.\n*Asclepias physocarpa*)**\n\n**foo \"*bar*\" foo**\n\n**foo**bar\n\n__foo bar __\n\n__(__foo)\n\n_(__foo__)_\n\n__foo__bar\n\n__пристаням__стремятся\n\n__foo__bar__baz__\n\n__(bar)__.\n\n*foo [bar](/url)*\n\n*foo\nbar*\n\n_foo __bar__ baz_\n\n_foo _bar_ baz_\n\n__foo_ bar_\n\n*foo *bar**\n\n*foo **bar** baz*\n\n*foo**bar**baz*\n\n*foo**bar*\n\n***foo** bar*\n\n*foo **bar***\n\n*foo**bar***\n\n<!-- Python Markdown prefers triple tokens as <strong><em> -->\nfoo***bar***baz\n\nfoo******bar*********baz\n\n*foo **bar *baz* bim** bop*\n\n*foo [*bar*](/url)*\n\n** is not an empty emphasis\n\n**** is not an empty strong emphasis\n\n**foo [bar](/url)**\n\n**foo\nbar**\n\n__foo _bar_ baz__\n\n__foo __bar__ baz__\n\n____foo__ bar__\n\n**foo **bar****\n\n**foo *bar* baz**\n\n**foo*bar*baz**\n\n***foo* bar**\n\n**foo *bar***\n\n**foo *bar **baz**\nbim* bop**\n\n**foo [*bar*](/url)**\n\n__ is not an empty emphasis\n\n____ is not an empty strong emphasis\n\nfoo ***\n\nfoo *\\**\n\nfoo *_*\n\nfoo *****\n\nfoo **\\***\n\nfoo **_**\n\n**foo*\n\n*foo**\n\n***foo**\n\n****foo*\n\n**foo***\n\n*foo****\n\nfoo ___\n\nfoo _\\__\n\nfoo _*_\n\nfoo _____\n\nfoo __\\___\n\nfoo __*__\n\n__foo_\n\n_foo__\n\n___foo__\n\n____foo_\n\n__foo___\n\n_foo____\n\n**foo**\n\n*_foo_*\n\n__foo__\n\n_*foo*_\n\n****foo****\n\n____foo____\n\n******foo******\n\n<!-- Python Markdown prefers triple tokens as <strong><em> -->\n***foo***\n\n_____foo_____\n\n*foo _bar* baz_\n\n*foo __bar *baz bim__ bam*\n\n**foo **bar baz**\n\n*foo *bar baz*\n\n*[bar*](/url)\n\n_foo [bar_](/url)\n\n*<img src=\"foo\" title=\"*\"/>\n\n**<a href=\"**\">\n\n__<a href=\"__\">\n\n*a `*`*\n\n_a `_`_\n\n**a<https://foo.bar/?q=**>\n\n__a<https://foo.bar/?q=__>",
+  "expected": "<p><em>foo bar</em></p>\n<p>a * foo bar*</p>\n<!-- CommonMark uses nbsp to test this, we instead just put test in front to avoid list parsing -->\n<p>test * a *</p>\n<p>foo<em>bar</em></p>\n<p>5<em>6</em>78</p>\n<p><em>foo bar</em></p>\n<p>_ foo bar_</p>\n<p>a_\"foo\"_</p>\n<p>foo_bar_</p>\n<p>5_6_78</p>\n<p>пристаням_стремятся_</p>\n<p>aa_\"bb\"_cc</p>\n<p>foo-<em>(bar)</em></p>\n<p>_foo*</p>\n<p>*foo bar *</p>\n<p>*foo bar\n*</p>\n<p><em>foo</em>bar</p>\n<p>_foo bar _</p>\n<p>_(_foo)</p>\n<p><em>(<em>foo</em>)</em></p>\n<p>_foo_bar</p>\n<p>_пристаням_стремятся</p>\n<p><em>foo_bar_baz</em></p>\n<p><em>(bar)</em>.</p>\n<p><strong>foo bar</strong></p>\n<p>** foo bar**</p>\n<p>foo<strong>bar</strong></p>\n<p><strong>foo bar</strong></p>\n<p>__ foo bar__</p>\n<p>__\nfoo bar__</p>\n<p>a__\"foo\"__</p>\n<p>foo__bar__</p>\n<p>5__6__78</p>\n<p>пристаням__стремятся__</p>\n<p><strong>foo, <strong>bar</strong>, baz</strong></p>\n<p>foo-<strong>(bar)</strong></p>\n<p>**foo bar **</p>\n<p><em>(<strong>foo</strong>)</em></p>\n<p><strong>Gomphocarpus (<em>Gomphocarpus physocarpus</em>, syn.\n<em>Asclepias physocarpa</em>)</strong></p>\n<p><strong>foo \"<em>bar</em>\" foo</strong></p>\n<p><strong>foo</strong>bar</p>\n<p>__foo bar __</p>\n<p>__(__foo)</p>\n<p><em>(<strong>foo</strong>)</em></p>\n<p>__foo__bar</p>\n<p>__пристаням__стремятся</p>\n<p><strong>foo__bar__baz</strong></p>\n<p><strong>(bar)</strong>.</p>\n<p><em>foo <a href=\"/url\">bar</a></em></p>\n<p><em>foo\nbar</em></p>\n<p><em>foo <strong>bar</strong> baz</em></p>\n<p><em>foo <em>bar</em> baz</em></p>\n<p><em><em>foo</em> bar</em></p>\n<p><em>foo <em>bar</em></em></p>\n<p><em>foo <strong>bar</strong> baz</em></p>\n<p><em>foo<strong>bar</strong>baz</em></p>\n<p><em>foo**bar</em></p>\n<p><em><strong>foo</strong> bar</em></p>\n<p><em>foo <strong>bar</strong></em></p>\n<p><em>foo<strong>bar</strong></em></p>\n<!-- Python Markdown prefers triple tokens as <strong><em> -->\n<p>foo<strong><em>bar</em></strong>baz</p>\n<p>foo<strong><strong><strong>bar</strong></strong></strong>***baz</p>\n<p><em>foo <strong>bar <em>baz</em> bim</strong> bop</em></p>\n<p><em>foo <a href=\"/url\"><em>bar</em></a></em></p>\n<p>** is not an empty emphasis</p>\n<p>**** is not an empty strong emphasis</p>\n<p><strong>foo <a href=\"/url\">bar</a></strong></p>\n<p><strong>foo\nbar</strong></p>\n<p><strong>foo <em>bar</em> baz</strong></p>\n<p><strong>foo <strong>bar</strong> baz</strong></p>\n<p><strong><strong>foo</strong> bar</strong></p>\n<p><strong>foo <strong>bar</strong></strong></p>\n<p><strong>foo <em>bar</em> baz</strong></p>\n<p><strong>foo<em>bar</em>baz</strong></p>\n<p><strong><em>foo</em> bar</strong></p>\n<p><strong>foo <em>bar</em></strong></p>\n<p><strong>foo <em>bar <strong>baz</strong>\nbim</em> bop</strong></p>\n<p><strong>foo <a href=\"/url\"><em>bar</em></a></strong></p>\n<p>__ is not an empty emphasis</p>\n<p>____ is not an empty strong emphasis</p>\n<p>foo ***</p>\n<p>foo <em>*</em></p>\n<p>foo <em>_</em></p>\n<p>foo *****</p>\n<p>foo <strong>*</strong></p>\n<p>foo <strong>_</strong></p>\n<p>*<em>foo</em></p>\n<p><em>foo</em>*</p>\n<p>*<strong>foo</strong></p>\n<p>***<em>foo</em></p>\n<p><strong>foo</strong>*</p>\n<p><em>foo</em>***</p>\n<p>foo ___</p>\n<p>foo <em>_</em></p>\n<p>foo <em>*</em></p>\n<p>foo _____</p>\n<p>foo <strong>_</strong></p>\n<p>foo <strong>*</strong></p>\n<p>_<em>foo</em></p>\n<p><em>foo</em>_</p>\n<p>_<strong>foo</strong></p>\n<p>___<em>foo</em></p>\n<p><strong>foo</strong>_</p>\n<p><em>foo</em>___</p>\n<p><strong>foo</strong></p>\n<p><em><em>foo</em></em></p>\n<p><strong>foo</strong></p>\n<p><em><em>foo</em></em></p>\n<p><strong><strong>foo</strong></strong></p>\n<p><strong><strong>foo</strong></strong></p>\n<p><strong><strong><strong>foo</strong></strong></strong></p>\n<!-- Python Markdown prefers triple tokens as <strong><em> -->\n<p><strong><em>foo</em></strong></p>\n<p><strong><em><strong>foo</strong></em></strong></p>\n<p><em>foo _bar</em> baz_</p>\n<p><em>foo <strong>bar *baz bim</strong> bam</em></p>\n<p>**foo <strong>bar baz</strong></p>\n<p>*foo <em>bar baz</em></p>\n<p>*<a href=\"/url\">bar*</a></p>\n<p>_foo <a href=\"/url\">bar_</a></p>\n<p>*<img src=\"foo\" title=\"*\"/></p>\n<p>**<a href=\"**\"></p>\n<p>__<a href=\"__\"></p>\n<p><em>a <code>*</code></em></p>\n<p><em>a <code>_</code></em></p>\n<p>**a<a href=\"https://foo.bar/?q=**\">https://foo.bar/?q=**</a></p>\n<p>__a<a href=\"https://foo.bar/?q=__\">https://foo.bar/?q=__</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_advanced_nesting",
+  "source": "**a*bc**\n\n*a**b**c**d**e**f*\n\n***a**b*cd**e*f***\n\n***a**b*cd*e**f***\n\n***a**b*cd*e**f*g*h***\n\n***a***bc**d*e***\n\n*a**b**c**d**e**f*\n\n*a**b***c**d***e**f*\n\n*a**b***c**d***e**f**\n\n__a _b c__\n\n_a __b __c __d __e __f_\n\n___a __b _c d__ e_ f___\n\n___a __b _c d_ e__ f___\n\n___a __b _c d_ e__ f _g_ h___\n\n___a ___b c__ d_ e___\n\n_a __b__ _c __d__ _e __f__\n\n___bold and italic***bold and italic**bold and italic*__ italic_\n\n***a __b** __c *d__ e*",
+  "expected": "<p>*<em>a<em>bc</em></em></p>\n<p><em>a<strong>b</strong>c<strong>d</strong>e**f</em></p>\n<p><em><strong>a</strong>b</em>cd<strong>e<em>f</em></strong></p>\n<p><em><strong>a</strong>b</em>cd<em>e<strong>f</strong></em></p>\n<p><em><strong>a</strong>b</em>cd<em>e<strong>f<em>g</em>h</strong></em></p>\n<p><strong><em>a</em></strong>bc<strong>d<em>e</em></strong></p>\n<p><em>a<strong>b</strong>c<strong>d</strong>e**f</em></p>\n<p><em>a<strong>b</strong></em>c<strong>d</strong><em>e**f</em></p>\n<p><em>a<strong>b</strong></em>c<strong>d</strong>*e<strong>f</strong></p>\n<p>_<em>a <em>b c</em></em></p>\n<p>_a __b __c __d __e _<em>f</em></p>\n<p><strong><em>a <em><em>b <em>c d</em></em> e</em> f</em></strong></p>\n<p><strong><em>a <strong>b <em>c d</em> e</strong> f</em></strong></p>\n<p><strong><em>a <strong>b <em>c d</em> e</strong> f <em>g</em> h</em></strong></p>\n<p><strong><em>a <em><strong>b c</strong> d</em> e</em></strong></p>\n<p>_a <strong>b</strong> _c <strong>d</strong> _e <strong>f</strong></p>\n<p><em><strong>bold and italic<em><strong>bold and italic</strong>bold and italic</em></strong> italic</em></p>\n<p><em><strong>a __b</strong> <strong>c *d</strong> e</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_complex_emphasis_asterisk",
+  "source": "This is text **bold *italic bold*** with more text",
+  "expected": "<p>This is text <strong>bold <em>italic bold</em></strong> with more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_complex_emphasis_asterisk_mid_word",
+  "source": "This is text **bold*italic bold*** with more text",
+  "expected": "<p>This is text <strong>bold<em>italic bold</em></strong> with more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_complex_emphasis_smart_underscore",
+  "source": "This is text __bold _italic bold___ with more text",
+  "expected": "<p>This is text <strong>bold <em>italic bold</em></strong> with more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_complex_emphasis_smart_underscore_mid_word",
+  "source": "This is text __bold_italic bold___ with more text",
+  "expected": "<p>This is text <strong>bold_italic bold</strong>_ with more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_complex_multple_emphasis_type",
+  "source": "traced ***along*** bla **blocked** if other ***or***",
+  "expected": "<p>traced <strong><em>along</em></strong> bla <strong>blocked</strong> if other <strong><em>or</em></strong></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_complex_multple_emphasis_type_variant2",
+  "source": "on the **1-4 row** of the AP Combat Table ***and*** receive",
+  "expected": "<p>on the <strong>1-4 row</strong> of the AP Combat Table <strong><em>and</em></strong> receive</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_em_strong_complex",
+  "source": "___test test__ test test_\n\n___test test_ test test__\n\n___test___\n\n__test__\n\n___test_ test___\n\n___test_ test__\n\n_test_test test_test_\n\n***test test** test test*\n\n***test test* test test**\n\n**test*\n\n***test***\n\n**test***\n\n***test* test**\n\n*test*test test*test*",
+  "expected": "<p><em><strong>test test</strong> test test</em></p>\n<p><strong><em>test test</em> test test</strong></p>\n<p><strong><em>test</em></strong></p>\n<p><strong>test</strong></p>\n<p><strong><em>test</em> test</strong>_</p>\n<p><strong><em>test</em> test</strong></p>\n<p><em>test_test test_test</em></p>\n<p><em><strong>test test</strong> test test</em></p>\n<p><strong><em>test test</em> test test</strong></p>\n<p>*<em>test</em></p>\n<p><strong><em>test</em></strong></p>\n<p><strong>test</strong>*</p>\n<p><strong><em>test</em> test</strong></p>\n<p><em>test</em>test test<em>test</em></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_link_emphasis_inner",
+  "source": "[**text**](url)",
+  "expected": "<p><a href=\"url\"><strong>text</strong></a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_link_emphasis_inner_outer",
+  "source": "**[**text**](url)**",
+  "expected": "<p><strong><a href=\"url\"><strong>text</strong></a></strong></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_link_emphasis_outer",
+  "source": "**[text](url)**",
+  "expected": "<p><strong><a href=\"url\">text</a></strong></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_nested_emphasis",
+  "source": "This text is **bold *italic* *italic* bold**",
+  "expected": "<p>This text is <strong>bold <em>italic</em> <em>italic</em> bold</strong></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_nested_patterns",
+  "source": "___[link](http://example.com)___\n***[link](http://example.com)***\n**[*link*](http://example.com)**\n__[_link_](http://example.com)__\n__[*link*](http://example.com)__\n**[_link_](http://example.com)**\n[***link***](http://example.com)\n\n***I am ___italic_ and__ bold* I am `just` bold**\n\nExample __*bold italic*__ on the same line __*bold italic*__.\n\nExample **_bold italic_** on the same line **_bold italic_**.",
+  "expected": "<p><strong><em><a href=\"http://example.com\">link</a></em></strong>\n<strong><em><a href=\"http://example.com\">link</a></em></strong>\n<strong><a href=\"http://example.com\"><em>link</em></a></strong>\n<strong><a href=\"http://example.com\"><em>link</em></a></strong>\n<strong><a href=\"http://example.com\"><em>link</em></a></strong>\n<strong><a href=\"http://example.com\"><em>link</em></a></strong>\n<a href=\"http://example.com\"><strong><em>link</em></strong></a></p>\n<p><strong><em>I am <strong><em>italic</em> and</strong> bold</em> I am <code>just</code> bold</strong></p>\n<p>Example <strong><em>bold italic</em></strong> on the same line <strong><em>bold italic</em></strong>.</p>\n<p>Example <strong><em>bold italic</em></strong> on the same line <strong><em>bold italic</em></strong>.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_non_english",
+  "source": "**단어(설명)**입니다.",
+  "expected": "<p><strong>단어(설명)</strong>입니다.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_strong_and_em_together",
+  "source": "***This is strong and em.***\n\nSo is ***this*** word.\n\n___This is strong and em.___\n\nSo is ___this___ word.",
+  "expected": "<p><strong><em>This is strong and em.</em></strong></p>\n<p>So is <strong><em>this</em></strong> word.</p>\n<p><strong><em>This is strong and em.</em></strong></p>\n<p>So is <strong><em>this</em></strong> word.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestEmphasis.test_underscore_legacy",
+  "source": "THIS_SHOULD_STAY_AS_IS\n\nHere is some _emphasis_, ok?\n\nOk, at least _this_ should work.\n\nTHIS__SHOULD__STAY\n\nHere is some __strong__ stuff.\n\nTHIS___SHOULD___STAY?",
+  "expected": "<p>THIS_SHOULD_STAY_AS_IS</p>\n<p>Here is some <em>emphasis</em>, ok?</p>\n<p>Ok, at least <em>this</em> should work.</p>\n<p>THIS__SHOULD__STAY</p>\n<p>Here is some <strong>strong</strong> stuff.</p>\n<p>THIS___SHOULD___STAY?</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_asterisk",
+  "source": "*",
+  "expected": "<p>*</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_asterisk_at_end",
+  "source": "foo *bar *",
+  "expected": "<p>foo *bar *</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_asterisk_in_text",
+  "source": "foo * bar",
+  "expected": "<p>foo * bar</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_asterisks_consecutive",
+  "source": "Foo * * * *",
+  "expected": "<p>Foo * * * *</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_asterisks_in_text",
+  "source": "foo * bar * baz",
+  "expected": "<p>foo * bar * baz</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_asterisks_pairs",
+  "source": "Foo ** ** ** **",
+  "expected": "<p>Foo ** ** ** **</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_asterisks_triples",
+  "source": "Foo *** *** *** ***",
+  "expected": "<p>Foo *** *** *** ***</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_asterisks_with_newlines",
+  "source": "foo\n* bar *\nbaz",
+  "expected": "<p>foo\n* bar *\nbaz</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_underscore_at_begin",
+  "source": "_ foo_ bar",
+  "expected": "<p>_ foo_ bar</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_understore",
+  "source": "_",
+  "expected": "<p>_</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_understore_consecutive",
+  "source": "Foo _ _ _ _",
+  "expected": "<p>Foo _ _ _ _</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_understore_in_text",
+  "source": "foo _ bar",
+  "expected": "<p>foo _ bar</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_understore_pairs",
+  "source": "Foo __ __ __ __",
+  "expected": "<p>Foo __ __ __ __</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_understore_triples",
+  "source": "Foo ___ ___ ___ ___",
+  "expected": "<p>Foo ___ ___ ___ ___</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_understores_at_begin_end",
+  "source": "_ bar _",
+  "expected": "<p>_ bar _</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_understores_in_text",
+  "source": "foo _ bar _ baz",
+  "expected": "<p>foo _ bar _ baz</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_emphasis.TestNotEmphasis.test_standalone_understores_with_newlines",
+  "source": "foo\n_ bar _\nbaz",
+  "expected": "<p>foo\n_ bar _\nbaz</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

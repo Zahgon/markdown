@@ -1,0 +1,93 @@
+[
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_backslash_escape_value",
+  "source": "# `*Foo*` { id=\"\\*Foo\\*\" }",
+  "expected": "<h1 id=\"*Foo*\"><code>*Foo*</code></h1>",
+  "extensions": [
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_curly_after_block",
+  "source": "# Heading {.a} }",
+  "expected": "<h1>Heading {.a} }</h1>",
+  "extensions": [
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_curly_after_inline",
+  "source": "*inline*{.a} } *text*{.a }}",
+  "expected": "<p><em class=\"a\">inline</em> } <em class=\"a\">text</em>}</p>",
+  "extensions": [
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_curly_in_double_quote",
+  "source": "# Heading {data-test=\"{}\"}",
+  "expected": "<h1 data-test=\"{}\">Heading</h1>",
+  "extensions": [
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_curly_in_single_quote",
+  "source": "# Heading {data-test='{}'}",
+  "expected": "<h1 data-test=\"{}\">Heading</h1>",
+  "extensions": [
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_empty_attr_list",
+  "source": "*foo*{ }",
+  "expected": "<p><em>foo</em>{ }</p>",
+  "extensions": [
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_extra_eq_gets_ignored_inside_curly_inline",
+  "source": "*inline*{data-test=\"x\" =a} *text*",
+  "expected": "<p><em data-test=\"x\">inline</em> <em>text</em></p>",
+  "extensions": [
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_table_td",
+  "source": "| A { .foo }  | *B*{ .foo } | C { } | D{ .foo }     | E { .foo } F |\n|-------------|-------------|-------|---------------|--------------|\n| a { .foo }  | *b*{ .foo } | c { } | d{ .foo }     | e { .foo } f |\n| valid on td | inline      | empty | missing space | not at end   |",
+  "expected": "<table>\n<thead>\n<tr>\n<th class=\"foo\">A</th>\n<th><em class=\"foo\">B</em></th>\n<th>C { }</th>\n<th>D{ .foo }</th>\n<th>E { .foo } F</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"foo\">a</td>\n<td><em class=\"foo\">b</em></td>\n<td>c { }</td>\n<td>d{ .foo }</td>\n<td>e { .foo } f</td>\n</tr>\n<tr>\n<td>valid on td</td>\n<td>inline</td>\n<td>empty</td>\n<td>missing space</td>\n<td>not at end</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "attr_list",
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_attr_list.TestAttrList.test_unclosed_quote_ignored",
+  "source": "# Heading {foo=\"bar}",
+  "expected": "<h1 foo=\"&quot;bar\">Heading</h1>",
+  "extensions": [
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

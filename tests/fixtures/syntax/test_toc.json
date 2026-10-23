@@ -1,0 +1,43 @@
+[
+ {
+  "name": "extensions.test_toc.TestTOC.testAutoLinkEmail",
+  "source": "## <foo@example.org>",
+  "expected": "<h2 id=\"fooexampleorg\"><a href=\"&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#111;&#111;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#111;&#114;&#103;\">&#102;&#111;&#111;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#111;&#114;&#103;</a></h2>",
+  "extensions": [
+   "toc"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_toc.TestTOC.test_escaped_char_in_attr_list",
+  "source": "# `*Foo*` { id=\"\\*Foo\\*\" }",
+  "expected": "<h1 id=\"*Foo*\"><code>*Foo*</code></h1>",
+  "extensions": [
+   "toc",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_toc.TestTOC.test_escaped_char_in_id",
+  "source": "# escaped\\_character",
+  "expected": "<h1 id=\"escaped_character\">escaped_character</h1>",
+  "extensions": [
+   "toc"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_toc.TestTOC.test_escaped_code",
+  "source": "[TOC]\n\n# `<test>`",
+  "expected": "<div class=\"toc\">\n<ul>\n<li><a href=\"#test\">&lt;test&gt;</a></li>\n</ul>\n</div>\n<h1 id=\"test\"><code>&lt;test&gt;</code></h1>",
+  "extensions": [
+   "toc"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

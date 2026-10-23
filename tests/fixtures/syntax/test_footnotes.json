@@ -1,0 +1,286 @@
+[
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_backlink_text",
+  "source": "paragraph[^1]\n\n[^1]: A Footnote",
+  "expected": "<p>paragraph<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">back</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {
+   "footnotes": {
+    "BACKLINK_TEXT": "back"
+   }
+  },
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_backlink_title",
+  "source": "paragraph[^1]\n\n[^1]: A Footnote",
+  "expected": "<p>paragraph<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {
+   "footnotes": {
+    "BACKLINK_TITLE": "Jump back to footnote"
+   }
+  },
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_basic_footnote",
+  "source": "paragraph[^1]\n\n[^1]: A Footnote",
+  "expected": "<p>paragraph<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_duplicate_footnote_references",
+  "source": "First[^dup] and second[^dup] reference.\n\n[^dup]: Duplicate footnote.",
+  "expected": "<p>First<sup id=\"fnref:dup\"><a class=\"footnote-ref\" href=\"#fn:dup\">1</a></sup> and second<sup id=\"fnref2:dup\"><a class=\"footnote-ref\" href=\"#fn:dup\">1</a></sup> reference.</p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:dup\">\n<p>Duplicate footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:dup\" title=\"Jump back to footnote 1 in the text\">&#8617;</a><a class=\"footnote-backref\" href=\"#fnref2:dup\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_definition_without_reference",
+  "source": "No reference here.\n\n[^orphan]: Orphaned footnote.",
+  "expected": "<p>No reference here.</p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:orphan\">\n<p>Orphaned footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:orphan\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_id_with_special_chars",
+  "source": "Special footnote id[^!#¤%/()=?+}{§øé].\n\n[^!#¤%/()=?+}{§øé]: The footnote.",
+  "expected": "<p>Special footnote id<sup id=\"fnref:!#¤%/()=?+}{§øé\"><a class=\"footnote-ref\" href=\"#fn:!#¤%/()=?+}{§øé\">1</a></sup>.</p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:!#¤%/()=?+}{§øé\">\n<p>The footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:!#¤%/()=?+}{§øé\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_multi_line",
+  "source": "paragraph[^1]\n[^1]: A Footnote\n    line 2",
+  "expected": "<p>paragraph<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote\nline 2&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_multi_line_complex",
+  "source": "paragraph[^1]\n\n[^1]:\n\n    A Footnote\n    line 2\n\n    * list item\n\n    > blockquote",
+  "expected": "<p>paragraph<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote\nline 2</p>\n<ul>\n<li>list item</li>\n</ul>\n<blockquote>\n<p>blockquote</p>\n</blockquote>\n<p><a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_multi_line_lazy_indent",
+  "source": "paragraph[^1]\n[^1]: A Footnote\nline 2",
+  "expected": "<p>paragraph<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote\nline 2&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_multple_complex",
+  "source": "foo[^1]\n\nbar[^2]\n\n[^1]:\n\n    A Footnote\n    line 2\n\n    * list item\n\n    > blockquote\n\n[^2]: Second footnote\n\n    paragraph 2",
+  "expected": "<p>foo<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<p>bar<sup id=\"fnref:2\"><a class=\"footnote-ref\" href=\"#fn:2\">2</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote\nline 2</p>\n<ul>\n<li>list item</li>\n</ul>\n<blockquote>\n<p>blockquote</p>\n</blockquote>\n<p><a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:2\">\n<p>Second footnote</p>\n<p>paragraph 2&#160;<a class=\"footnote-backref\" href=\"#fnref:2\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_multple_complex_no_blank_line_between",
+  "source": "foo[^1]\n\nbar[^2]\n\n[^1]:\n\n    A Footnote\n    line 2\n\n    * list item\n\n    > blockquote\n[^2]: Second footnote\n\n    paragraph 2",
+  "expected": "<p>foo<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<p>bar<sup id=\"fnref:2\"><a class=\"footnote-ref\" href=\"#fn:2\">2</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote\nline 2</p>\n<ul>\n<li>list item</li>\n</ul>\n<blockquote>\n<p>blockquote</p>\n</blockquote>\n<p><a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:2\">\n<p>Second footnote</p>\n<p>paragraph 2&#160;<a class=\"footnote-backref\" href=\"#fnref:2\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_order_by_definition",
+  "source": "First footnote reference[^last_def]. Second footnote reference[^first_def].\n\n[^first_def]: First footnote.\n[^last_def]: Second footnote.",
+  "expected": "<p>First footnote reference<sup id=\"fnref:last_def\"><a class=\"footnote-ref\" href=\"#fn:last_def\">2</a></sup>. Second footnote reference<sup id=\"fnref:first_def\"><a class=\"footnote-ref\" href=\"#fn:first_def\">1</a></sup>.</p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:first_def\">\n<p>First footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:first_def\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:last_def\">\n<p>Second footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:last_def\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {
+   "footnotes": {
+    "USE_DEFINITION_ORDER": true
+   }
+  },
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_order_by_doc_order",
+  "source": "First footnote reference[^first]. Second footnote reference[^last].\n\n[^last]: Second footnote.\n[^first]: First footnote.",
+  "expected": "<p>First footnote reference<sup id=\"fnref:first\"><a class=\"footnote-ref\" href=\"#fn:first\">1</a></sup>. Second footnote reference<sup id=\"fnref:last\"><a class=\"footnote-ref\" href=\"#fn:last\">2</a></sup>.</p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:first\">\n<p>First footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:first\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:last\">\n<p>Second footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:last\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {
+   "footnotes": {
+    "USE_DEFINITION_ORDER": false
+   }
+  },
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_order_tricky",
+  "source": "`Footnote reference in code spans should be ignored[^tricky]`.\nA footnote reference[^ordinary].\nAnother footnote reference[^tricky].\n\n[^ordinary]: This should be the first footnote.\n[^tricky]: This should be the second footnote.",
+  "expected": "<p><code>Footnote reference in code spans should be ignored[^tricky]</code>.\nA footnote reference<sup id=\"fnref:ordinary\"><a class=\"footnote-ref\" href=\"#fn:ordinary\">1</a></sup>.\nAnother footnote reference<sup id=\"fnref:tricky\"><a class=\"footnote-ref\" href=\"#fn:tricky\">2</a></sup>.</p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:ordinary\">\n<p>This should be the first footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:ordinary\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:tricky\">\n<p>This should be the second footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:tricky\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_reference_within_blockquote",
+  "source": "> This is a quote with a footnote[^quote].\n\n[^quote]: Quote footnote.",
+  "expected": "<blockquote>\n<p>This is a quote with a footnote<sup id=\"fnref:quote\"><a class=\"footnote-ref\" href=\"#fn:quote\">1</a></sup>.</p>\n</blockquote>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:quote\">\n<p>Quote footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:quote\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_reference_within_code_span",
+  "source": "A `code span with a footnote[^1] reference`.",
+  "expected": "<p>A <code>code span with a footnote[^1] reference</code>.</p>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_reference_within_footnote_definition",
+  "source": "Main footnote[^main].\n\n[^main]: This footnote references another[^nested].\n[^nested]: Nested footnote.",
+  "expected": "<p>Main footnote<sup id=\"fnref:main\"><a class=\"footnote-ref\" href=\"#fn:main\">1</a></sup>.</p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:main\">\n<p>This footnote references another<sup id=\"fnref:nested\"><a class=\"footnote-ref\" href=\"#fn:nested\">2</a></sup>.&#160;<a class=\"footnote-backref\" href=\"#fnref:main\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:nested\">\n<p>Nested footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:nested\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_reference_within_html",
+  "source": "A <span>footnote reference[^1] within a span element</span>.\n\n[^1]: The footnote.",
+  "expected": "<p>A <span>footnote reference<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup> within a span element</span>.</p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>The footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_reference_within_link",
+  "source": "A [link with a footnote[^1] reference](http://example.com).",
+  "expected": "<p>A <a href=\"http://example.com\">link with a footnote[^1] reference</a>.</p>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_reference_within_list",
+  "source": "1. First item with footnote[^note]\n1. Second item\n\n[^note]: List footnote.",
+  "expected": "<ol>\n<li>First item with footnote<sup id=\"fnref:note\"><a class=\"footnote-ref\" href=\"#fn:note\">1</a></sup></li>\n<li>Second item</li>\n</ol>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:note\">\n<p>List footnote.&#160;<a class=\"footnote-backref\" href=\"#fnref:note\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_reference_without_definition",
+  "source": "This has a missing footnote[^missing].",
+  "expected": "<p>This has a missing footnote[^missing].</p>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_references_within_loose_list",
+  "source": "* Reference to [^first]\n\n* Reference to [^second]\n\n[^first]: First footnote definition\n[^second]: Second footnote definition",
+  "expected": "<ul>\n<li>\n<p>Reference to <sup id=\"fnref:first\"><a class=\"footnote-ref\" href=\"#fn:first\">1</a></sup></p>\n</li>\n<li>\n<p>Reference to <sup id=\"fnref:second\"><a class=\"footnote-ref\" href=\"#fn:second\">2</a></sup></p>\n</li>\n</ul>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:first\">\n<p>First footnote definition&#160;<a class=\"footnote-backref\" href=\"#fnref:first\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:second\">\n<p>Second footnote definition&#160;<a class=\"footnote-backref\" href=\"#fnref:second\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_footnote_separator",
+  "source": "paragraph[^1]\n\n[^1]: A Footnote",
+  "expected": "<p>paragraph<sup id=\"fnref-1\"><a class=\"footnote-ref\" href=\"#fn-1\">1</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn-1\">\n<p>A Footnote&#160;<a class=\"footnote-backref\" href=\"#fnref-1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {
+   "footnotes": {
+    "SEPARATOR": "-"
+   }
+  },
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_multiple_footnotes",
+  "source": "foo[^1]\n\nbar[^2]\n\n[^1]: Footnote 1\n[^2]: Footnote 2",
+  "expected": "<p>foo<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<p>bar<sup id=\"fnref:2\"><a class=\"footnote-ref\" href=\"#fn:2\">2</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>Footnote 1&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:2\">\n<p>Footnote 2&#160;<a class=\"footnote-backref\" href=\"#fnref:2\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_multiple_footnotes_multiline",
+  "source": "foo[^1]\n\nbar[^2]\n\n[^1]: Footnote 1\n    line 2\n[^2]: Footnote 2",
+  "expected": "<p>foo<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">1</a></sup></p>\n<p>bar<sup id=\"fnref:2\"><a class=\"footnote-ref\" href=\"#fn:2\">2</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>Footnote 1\nline 2&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n<li id=\"fn:2\">\n<p>Footnote 2&#160;<a class=\"footnote-backref\" href=\"#fnref:2\" title=\"Jump back to footnote 2 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_footnotes.TestFootnotes.test_superscript_text",
+  "source": "paragraph[^1]\n\n[^1]: A Footnote",
+  "expected": "<p>paragraph<sup id=\"fnref:1\"><a class=\"footnote-ref\" href=\"#fn:1\">[1]</a></sup></p>\n<div class=\"footnote\">\n<hr />\n<ol>\n<li id=\"fn:1\">\n<p>A Footnote&#160;<a class=\"footnote-backref\" href=\"#fnref:1\" title=\"Jump back to footnote 1 in the text\">&#8617;</a></p>\n</li>\n</ol>\n</div>",
+  "extensions": [
+   "footnotes"
+  ],
+  "configs": {
+   "footnotes": {
+    "SUPERSCRIPT_TEXT": "[{}]"
+   }
+  },
+  "output_format": "xhtml"
+ }
+]

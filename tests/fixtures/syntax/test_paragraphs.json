@@ -1,0 +1,146 @@
+[
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_2_paragraphs_long_line",
+  "source": "A very long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long paragraph on 1 line.\n\nA new long long long long long long long long long long long long long long long long paragraph on 1 line.",
+  "expected": "<p>A very long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long paragraph on 1 line.</p>\n<p>A new long long long long long long long long long long long long long long long long paragraph on 1 line.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_blank_line_before_paragraph",
+  "source": "\nA paragraph preceded by a blank line.",
+  "expected": "<p>A paragraph preceded by a blank line.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_consecutive_multiline_paragraphs",
+  "source": "Paragraph 1, line 1.\nParagraph 1, line 2.\n\nParagraph 2, line 1.\nParagraph 2, line 2.",
+  "expected": "<p>Paragraph 1, line 1.\nParagraph 1, line 2.</p>\n<p>Paragraph 2, line 1.\nParagraph 2, line 2.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_consecutive_paragraphs",
+  "source": "Paragraph 1.\n\nParagraph 2.",
+  "expected": "<p>Paragraph 1.</p>\n<p>Paragraph 2.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_consecutive_paragraphs_space",
+  "source": "Paragraph followed by a line with a space only.\n\nParagraph after a line with a space only.",
+  "expected": "<p>Paragraph followed by a line with a space only.</p>\n<p>Paragraph after a line with a space only.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_consecutive_paragraphs_tab",
+  "source": "Paragraph followed by a line with a tab only.\n\nParagraph after a line with a tab only.",
+  "expected": "<p>Paragraph followed by a line with a tab only.</p>\n<p>Paragraph after a line with a tab only.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_multiline_paragraph",
+  "source": "This is a paragraph\non multiple lines\nwith hard returns.",
+  "expected": "<p>This is a paragraph\non multiple lines\nwith hard returns.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraph_2_leading_spaces",
+  "source": "  A paragraph with 2 leading spaces.",
+  "expected": "<p>A paragraph with 2 leading spaces.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraph_3_leading_spaces",
+  "source": "   A paragraph with 3 leading spaces.",
+  "expected": "<p>A paragraph with 3 leading spaces.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraph_leading_space",
+  "source": " A paragraph with 1 leading space.",
+  "expected": "<p>A paragraph with 1 leading space.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraph_long_line",
+  "source": "A very long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long paragraph on 1 line.",
+  "expected": "<p>A very long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long paragraph on 1 line.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraph_trailing_leading_space",
+  "source": " A paragraph with 1 trailing and 1 leading space. ",
+  "expected": "<p>A paragraph with 1 trailing and 1 leading space. </p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraph_trailing_tab",
+  "source": "A paragraph with 1 trailing tab.\t",
+  "expected": "<p>A paragraph with 1 trailing tab.    </p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraphs_CR",
+  "source": "Paragraph 1, line 1.\rParagraph 1, line 2.\r\rParagraph 2, line 1.\rParagraph 2, line 2.\r",
+  "expected": "<p>Paragraph 1, line 1.\nParagraph 1, line 2.</p>\n<p>Paragraph 2, line 1.\nParagraph 2, line 2.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraphs_CR_LF",
+  "source": "Paragraph 1, line 1.\r\nParagraph 1, line 2.\r\n\r\nParagraph 2, line 1.\r\nParagraph 2, line 2.\r\n",
+  "expected": "<p>Paragraph 1, line 1.\nParagraph 1, line 2.</p>\n<p>Paragraph 2, line 1.\nParagraph 2, line 2.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraphs_LF",
+  "source": "Paragraph 1, line 1.\nParagraph 1, line 2.\n\nParagraph 2, line 1.\nParagraph 2, line 2.\n",
+  "expected": "<p>Paragraph 1, line 1.\nParagraph 1, line 2.</p>\n<p>Paragraph 2, line 1.\nParagraph 2, line 2.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_paragraphs_no_list",
+  "source": "Paragraph:\n* no list\n\nParagraph\n * no list\n\nParagraph:\n  * no list\n\nParagraph:\n   * no list",
+  "expected": "<p>Paragraph:\n* no list</p>\n<p>Paragraph\n * no list</p>\n<p>Paragraph:\n  * no list</p>\n<p>Paragraph:\n   * no list</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_paragraphs.TestParagraphBlocks.test_simple_paragraph",
+  "source": "A simple paragraph.",
+  "expected": "<p>A simple paragraph.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

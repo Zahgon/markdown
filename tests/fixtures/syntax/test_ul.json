@@ -1,0 +1,18 @@
+[
+ {
+  "name": "blocks.test_ul.TestUnorderedLists.test_header_and_paragraph_no_blank_line_loose_list",
+  "source": "- ### List 1\n    Entry 1.1\n\n- ### List 2\n    Entry 2.1",
+  "expected": "<ul>\n<li>\n<h3>List 1</h3>\n<p>Entry 1.1</p>\n</li>\n<li>\n<h3>List 2</h3>\n<p>Entry 2.1</p>\n</li>\n</ul>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_ul.TestUnorderedLists.test_header_and_paragraph_no_blank_line_loose_list_no_indent",
+  "source": "- ### List 1\nEntry 1.1\n\n- ### List 2\nEntry 2.1",
+  "expected": "<ul>\n<li>\n<h3>List 1</h3>\n<p>Entry 1.1</p>\n</li>\n<li>\n<h3>List 2</h3>\n<p>Entry 2.1</p>\n</li>\n</ul>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

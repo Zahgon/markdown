@@ -1,0 +1,338 @@
+[
+ {
+  "name": "inline.test_links.TestInlineLinks.test_amp_in_url",
+  "source": "[link](http://www.freewisdom.org/this&that)",
+  "expected": "<p><a href=\"http://www.freewisdom.org/this&amp;that\">link</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_amp_in_url",
+  "source": "[title](http://example.com/?a=1&amp;b=2)",
+  "expected": "<p><a href=\"http://example.com/?a=1&amp;b=2\">title</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_amp_in_url",
+  "source": "[title](http://example.com/?a=1&#x26;b=2)",
+  "expected": "<p><a href=\"http://example.com/?a=1&#x26;b=2\">title</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_angle_with_mixed_title_quotes",
+  "source": "[Text](<http://link.com/with spaces '\"and quotes\"> 'and title') more text",
+  "expected": "<p><a href=\"http://link.com/with spaces '&quot;and quotes&quot;\" title=\"and title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_angles_and_nonsense_url",
+  "source": "[test nonsense](<?}]*+|&)>).",
+  "expected": "<p><a href=\"?}]*+|&amp;)\">test nonsense</a>.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_mixed_title_quotes1",
+  "source": "[Text](http://link.com/'\"title\") more text",
+  "expected": "<p><a href=\"http://link.com/'\" title=\"title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_mixed_title_quotes2",
+  "source": "[Text](http://link.com/\"'title') more text",
+  "expected": "<p><a href=\"http://link.com/&quot;\" title=\"title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_mixed_title_quotes3",
+  "source": "[Text](http://link.com/with spaces'\"and quotes\" 'and title') more text",
+  "expected": "<p><a href=\"http://link.com/with spaces\" title=\"&quot;and quotes&quot; 'and title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_mixed_title_quotes4",
+  "source": "[Text](http://link.com/with spaces'\"and quotes\" 'and title\") more text",
+  "expected": "<p><a href=\"http://link.com/with spaces'\" title=\"and quotes&quot; 'and title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_mixed_title_quotes5",
+  "source": "[Text](http://link.com/with spaces '\"and quotes\" 'and title') more text",
+  "expected": "<p><a href=\"http://link.com/with spaces\" title=\"&quot;and quotes&quot; 'and title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_mixed_title_quotes6",
+  "source": "[Text](http://link.com/with spaces \"and quotes\" 'and title') more text",
+  "expected": "<p><a href=\"http://link.com/with spaces &quot;and quotes&quot;\" title=\"and title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_nested_escaped_brackets",
+  "source": "[Text](/url\\(test\\) \"title\").",
+  "expected": "<p><a href=\"/url(test)\" title=\"title\">Text</a>.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_nested_escaped_brackets_and_angles",
+  "source": "[Text](</url\\(test\\)> \"title\").",
+  "expected": "<p><a href=\"/url(test)\" title=\"title\">Text</a>.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_nested_round_brackets",
+  "source": "[Text](http://link.com/(((((((()))))))())) more text",
+  "expected": "<p><a href=\"http://link.com/(((((((()))))))())\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_nested_square_brackets",
+  "source": "[Text[[[[[[[]]]]]]][]](http://link.com) more text",
+  "expected": "<p><a href=\"http://link.com\">Text[[[[[[[]]]]]]][]</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_nested_unescaped_brackets",
+  "source": "[Text](/url(test) \"title\").",
+  "expected": "<p><a href=\"/url(test)\" title=\"title\">Text</a>.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_nested_unescaped_brackets_and_angles",
+  "source": "[Text](</url(test)> \"title\").",
+  "expected": "<p><a href=\"/url(test)\" title=\"title\">Text</a>.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_single_quote",
+  "source": "[test](link\"notitle)",
+  "expected": "<p><a href=\"link&quot;notitle\">test</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_uneven_brackets_with_titles1",
+  "source": "[Text](http://link.com/(\"title\") more text",
+  "expected": "<p><a href=\"http://link.com/(\" title=\"title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_uneven_brackets_with_titles2",
+  "source": "[Text](http://link.com/('\"title\") more text",
+  "expected": "<p><a href=\"http://link.com/('\" title=\"title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_uneven_brackets_with_titles3",
+  "source": "[Text](http://link.com/(\"title)\") more text",
+  "expected": "<p><a href=\"http://link.com/(\" title=\"title)\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_uneven_brackets_with_titles4",
+  "source": "[Text](http://link.com/( \"title\") more text",
+  "expected": "<p><a href=\"http://link.com/(\" title=\"title\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestInlineLinks.test_uneven_brackets_with_titles5",
+  "source": "[Text](http://link.com/( \"title)\") more text",
+  "expected": "<p><a href=\"http://link.com/(\" title=\"title)\">Text</a> more text</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link",
+  "source": "[Text]\n\n[Text]: http://example.com",
+  "expected": "<p><a href=\"http://example.com\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_angle_brackets",
+  "source": "[Text]\n\n[Text]: <http://example.com>",
+  "expected": "<p><a href=\"http://example.com\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_angle_brackets_no_space",
+  "source": "[Text]\n\n[Text]:<http://example.com>",
+  "expected": "<p><a href=\"http://example.com\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_angle_brackets_title",
+  "source": "[Text]\n\n[Text]: <http://example.com> \"title\"",
+  "expected": "<p><a href=\"http://example.com\" title=\"title\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_angle_brackets_title_no_space",
+  "source": "[Text]\n\n[Text]: <http://example.com>\"title\"",
+  "expected": "<p><a href=\"http://example.com&gt;&quot;title&quot;\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_multi_line",
+  "source": "[Text]\n\n[Text]:\n    http://example.com\n    \"title\"",
+  "expected": "<p><a href=\"http://example.com\" title=\"title\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_nested_left_bracket",
+  "source": "[Text[]\n\n[Text[]: http://example.com",
+  "expected": "<p>[Text[]</p>\n<p>[Text[]: http://example.com</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_nested_right_bracket",
+  "source": "[Text]]\n\n[Text]]: http://example.com",
+  "expected": "<p>[Text]]</p>\n<p>[Text]]: http://example.com</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_no_space",
+  "source": "[Text]\n\n[Text]:http://example.com",
+  "expected": "<p><a href=\"http://example.com\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_override",
+  "source": "[Text]\n\n[Text]: http://example.com 'ignore'\n[Text]: https://example.com 'override'",
+  "expected": "<p><a href=\"https://example.com\" title=\"override\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_single_quoted_title",
+  "source": "[Text]\n\n[Text]: http://example.com 'title'",
+  "expected": "<p><a href=\"http://example.com\" title=\"title\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_single_quoted_title_nested_quote",
+  "source": "[Text]\n\n[Text]: http://example.com 'title\"'",
+  "expected": "<p><a href=\"http://example.com\" title=\"title&quot;\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_title",
+  "source": "[Text]\n\n[Text]: http://example.com \"title\"",
+  "expected": "<p><a href=\"http://example.com\" title=\"title\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_title_nested_quote",
+  "source": "[Text]\n\n[Text]: http://example.com \"title'\"",
+  "expected": "<p><a href=\"http://example.com\" title=\"title'\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_title_no_blank_lines",
+  "source": "[Text]\n[Text]: http://example.com \"title\"\n[Text]",
+  "expected": "<p><a href=\"http://example.com\" title=\"title\">Text</a></p>\n<p><a href=\"http://example.com\" title=\"title\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_link_title_no_space",
+  "source": "[Text]\n\n[Text]: http://example.com\"title\"",
+  "expected": "<p><a href=\"http://example.com&quot;title&quot;\">Text</a></p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_ref_round_brackets",
+  "source": "[Text][1].\n\n[Text][2].\n\n  [1]: /url(test) \"title\"\n  [2]: </url(test)> \"title\"",
+  "expected": "<p><a href=\"/url(test)\" title=\"title\">Text</a>.</p>\n<p><a href=\"/url(test)\" title=\"title\">Text</a>.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_reference_across_blocks",
+  "source": "I would like to tell you about the [code of\n\nconduct][] we are using in this project.\n\n[code of conduct]: https://github.com/Python-Markdown/markdown/blob/master/CODE_OF_CONDUCT.md",
+  "expected": "<p>I would like to tell you about the [code of</p>\n<p>conduct][] we are using in this project.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_links.TestReferenceLinks.test_reference_newlines",
+  "source": "Two things:\n\n - I would like to tell you about the [code of\n   conduct][] we are using in this project.\n - Only one in fact.\n\n[code of conduct]: https://github.com/Python-Markdown/markdown/blob/master/CODE_OF_CONDUCT.md",
+  "expected": "<p>Two things:</p>\n<ul>\n<li>I would like to tell you about the <a href=\"https://github.com/Python-Markdown/markdown/blob/master/CODE_OF_CONDUCT.md\">code of\n   conduct</a> we are using in this project.</li>\n<li>Only one in fact.</li>\n</ul>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

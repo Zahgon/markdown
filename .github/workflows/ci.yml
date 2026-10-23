@@ -1,0 +1,33 @@
+# This workflow builds the crate and runs the tests and linters.
+
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+    tags:
+    - '**'
+  pull_request:
+    branches:
+    - '**'
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        components: clippy, rustfmt
+    - name: Build
+      run: cargo build --release --locked
+    - name: Run tests
+      run: cargo test --release --locked
+    - name: Lint
+      run: |
+        cargo fmt --check
+        cargo clippy --all-targets --locked -- -D warnings

@@ -1,0 +1,378 @@
+[
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_2_consecutive_hr",
+  "source": "- - -\n- - -",
+  "expected": "<hr />\n<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_after_emstrong",
+  "source": "***text***\n***",
+  "expected": "<p><strong><em>text</em></strong></p>\n<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_after_paragraph",
+  "source": "A paragraph followed by an HR with no blank line.\n***",
+  "expected": "<p>A paragraph followed by an HR with no blank line.</p>\n<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks",
+  "source": "***",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_1_indent",
+  "source": " ***",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_2_indent",
+  "source": "  ***",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_3_indent",
+  "source": "   ***",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_long",
+  "source": "*******",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_spaces",
+  "source": "* * *",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_spaces_1_indent",
+  "source": " * * *",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_spaces_2_indent",
+  "source": "  * * *",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_spaces_3_indent",
+  "source": "   * * *",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_spaces_long",
+  "source": "* * * * * * *",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_spaces_trailing_space",
+  "source": "* * * ",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_asterisks_trailing_space",
+  "source": "*** ",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_before_paragraph",
+  "source": "***\nAn HR followed by a paragraph with no blank line.",
+  "expected": "<hr />\n<p>An HR followed by a paragraph with no blank line.</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens",
+  "source": "---",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_1_indent",
+  "source": " ---",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_2_indent",
+  "source": "  ---",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_3_indent",
+  "source": "   ---",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_long",
+  "source": "-------",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_spaces",
+  "source": "- - -",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_spaces_1_indent",
+  "source": " - - -",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_spaces_2_indent",
+  "source": "  - - -",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_spaces_3_indent",
+  "source": "   - - -",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_spaces_long",
+  "source": "- - - - - - -",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_spaces_trailing_space",
+  "source": "- - - ",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_hyphens_trailing_space",
+  "source": "--- ",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores",
+  "source": "___",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_1_indent",
+  "source": " ___",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_2_indent",
+  "source": "  ___",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_3_indent",
+  "source": "   ___",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_long",
+  "source": "_______",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_spaces",
+  "source": "_ _ _",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_spaces_1_indent",
+  "source": " _ _ _",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_spaces_2_indent",
+  "source": "  _ _ _",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_spaces_3_indent",
+  "source": "   _ _ _",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_spaces_long",
+  "source": "_ _ _ _ _ _ _",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_spaces_trailing_space",
+  "source": "_ _ _ ",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_hr_underscores_trailing_space",
+  "source": "___ ",
+  "expected": "<hr />",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_not_hr_2_asterisks",
+  "source": "**",
+  "expected": "<p>**</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_not_hr_2_asterisks_spaces",
+  "source": "* *",
+  "expected": "<ul>\n<li>*</li>\n</ul>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_not_hr_2_hyphens",
+  "source": "--",
+  "expected": "<p>--</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_not_hr_2_hyphens_spaces",
+  "source": "- -",
+  "expected": "<ul>\n<li>-</li>\n</ul>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_not_hr_2_underscores",
+  "source": "__",
+  "expected": "<p>__</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_not_hr_2_underscores_spaces",
+  "source": "_ _",
+  "expected": "<p>_ _</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_hr.TestHorizontalRules.test_not_hr_end_in_char",
+  "source": "--------------------------------------c",
+  "expected": "<p>--------------------------------------c</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

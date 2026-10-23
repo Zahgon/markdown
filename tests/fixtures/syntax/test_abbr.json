@@ -1,0 +1,253 @@
+[
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_bracket",
+  "source": "ABBR]abbr\n\n*[ABBR]abbr]: Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR]abbr</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_carrot",
+  "source": "ABBR^abbr\n\n*[ABBR^abbr]: Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR^abbr</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_clear",
+  "source": "*[abbr]: Abbreviation Definition\n*[ABBR]: Abbreviation Definition\n\nabbr ABBR\n\n*[abbr]: \"\"\n*[ABBR]: ''",
+  "expected": "<p>abbr ABBR</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_double_quoted",
+  "source": "ABBR\n\n*[ABBR]: \"Abbreviation\"",
+  "expected": "<p><abbr title=\"&quot;Abbreviation&quot;\">ABBR</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_empty",
+  "source": "*[abbr]:\nAbbreviation Definition\n\nabbr\n\n*[]: Empty\n\n*[ ]: Empty\n\n*[abbr]:\n\n*[ABBR]:\n\nTesting document text.",
+  "expected": "<p><abbr title=\"Abbreviation Definition\">abbr</abbr></p>\n<p>*[]: Empty</p>\n<p>*[ ]: Empty</p>\n<p>*[<abbr title=\"Abbreviation Definition\">abbr</abbr>]:</p>\n<p>*[ABBR]:</p>\n<p>Testing document text.</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_extra_space",
+  "source": "ABBR\n\n*[ABBR] :      Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_hyphen",
+  "source": "ABBR-abbr\n\n*[ABBR-abbr]: Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR-abbr</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_ignore_backslash",
+  "source": "\\\\foo\n\n*[\\\\foo]: Not an abbreviation",
+  "expected": "<p>\\foo</p>\n<p>*[\\foo]: Not an abbreviation</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_ignore_unmatched_case",
+  "source": "ABBR abbr\n\n*[ABBR]: Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR</abbr> abbr</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_line_break",
+  "source": "ABBR\n\n*[ABBR]:\n    Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_lower",
+  "source": "abbr\n\n*[abbr]: Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">abbr</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_multiple_in_tail",
+  "source": "*The* HTML specification\nis maintained by the W3C.\n\n*[HTML]: Hyper Text Markup Language\n*[W3C]:  World Wide Web Consortium",
+  "expected": "<p><em>The</em> <abbr title=\"Hyper Text Markup Language\">HTML</abbr> specification\nis maintained by the <abbr title=\"World Wide Web Consortium\">W3C</abbr>.</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_multiple_in_text",
+  "source": "The HTML specification\nis maintained by the W3C.\n\n*[HTML]: Hyper Text Markup Language\n*[W3C]:  World Wide Web Consortium",
+  "expected": "<p>The <abbr title=\"Hyper Text Markup Language\">HTML</abbr> specification\nis maintained by the <abbr title=\"World Wide Web Consortium\">W3C</abbr>.</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_multiple_nested",
+  "source": "The *HTML* specification\nis maintained by the *W3C*.\n\n*[HTML]: Hyper Text Markup Language\n*[W3C]:  World Wide Web Consortium",
+  "expected": "<p>The <em><abbr title=\"Hyper Text Markup Language\">HTML</abbr></em> specification\nis maintained by the <em><abbr title=\"World Wide Web Consortium\">W3C</abbr></em>.</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_nested",
+  "source": "[ABBR](/foo)\n\n_ABBR_\n\n*[ABBR]: Abbreviation",
+  "expected": "<p><a href=\"/foo\"><abbr title=\"Abbreviation\">ABBR</abbr></a></p>\n<p><em><abbr title=\"Abbreviation\">ABBR</abbr></em></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_no_blank_Lines",
+  "source": "ABBR\n*[ABBR]: Abbreviation\nABBR",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR</abbr></p>\n<p><abbr title=\"Abbreviation\">ABBR</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_no_space",
+  "source": "ABBR\n\n*[ABBR]:Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_override",
+  "source": "ABBR\n\n*[ABBR]: Ignored\n*[ABBR]: The override",
+  "expected": "<p><abbr title=\"The override\">ABBR</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_partial_word",
+  "source": "ABBR ABBREVIATION\n\n*[ABBR]: Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR</abbr> ABBREVIATION</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_single_quoted",
+  "source": "ABBR\n\n*[ABBR]: 'Abbreviation'",
+  "expected": "<p><abbr title=\"'Abbreviation'\">ABBR</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_superset_vs_subset",
+  "source": "abbr, SS, and abbr-SS should have different definitions.\n\n*[abbr]: Abbreviation Definition\n*[abbr-SS]: Abbreviation Superset Definition\n*[SS]: Superset Definition",
+  "expected": "<p><abbr title=\"Abbreviation Definition\">abbr</abbr>, <abbr title=\"Superset Definition\">SS</abbr>, and <abbr title=\"Abbreviation Superset Definition\">abbr-SS</abbr> should have different definitions.</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_unused",
+  "source": "foo bar\n\n*[ABBR]: Abbreviation",
+  "expected": "<p>foo bar</p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_upper",
+  "source": "ABBR\n\n*[ABBR]: Abbreviation",
+  "expected": "<p><abbr title=\"Abbreviation\">ABBR</abbr></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_abbr_with_attr_list",
+  "source": "*[abbr]: Abbreviation Definition\n\n![Image with abbr in title](abbr.png){title=\"Image with abbr in title\"}",
+  "expected": "<p><img alt=\"Image with abbr in title\" src=\"abbr.png\" title=\"Image with abbr in title\" /></p>",
+  "extensions": [
+   "abbr",
+   "attr_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_abbr.TestAbbr.test_ignore_atomic",
+  "source": "This <https://example.com/{YAFR}>\n\n*[YAFR]: Yet Another Feature Request",
+  "expected": "<p>This <a href=\"https://example.com/{YAFR}\">https://example.com/{YAFR}</a></p>",
+  "extensions": [
+   "abbr"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

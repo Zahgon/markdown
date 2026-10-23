@@ -1,0 +1,73 @@
+[
+ {
+  "name": "extensions.test_admonition.TestAdmonition.test_admonition_first_indented",
+  "source": "!!! danger \"This is not\"\n        one long admonition title",
+  "expected": "<div class=\"admonition danger\">\n<p class=\"admonition-title\">This is not</p>\n<pre><code>one long admonition title\n</code></pre>\n</div>",
+  "extensions": [
+   "admonition"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_admonition.TestAdmonition.test_admontion_detabbing",
+  "source": "!!! note \"Admonition\"\n    - Parent 1\n\n        - Child 1\n        - Child 2",
+  "expected": "<div class=\"admonition note\">\n<p class=\"admonition-title\">Admonition</p>\n<ul>\n<li>\n<p>Parent 1</p>\n<ul>\n<li>Child 1</li>\n<li>Child 2</li>\n</ul>\n</li>\n</ul>\n</div>",
+  "extensions": [
+   "admonition"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_admonition.TestAdmonition.test_definition_list",
+  "source": "- List\n\n    !!! note \"Admontion\"\n\n        Term\n\n        :   Definition\n\n            More text\n\n        :   Another\n            definition\n\n            Even more text",
+  "expected": "<ul>\n<li>\n<p>List</p>\n<div class=\"admonition note\">\n<p class=\"admonition-title\">Admontion</p>\n<dl>\n<dt>Term</dt>\n<dd>\n<p>Definition</p>\n<p>More text</p>\n</dd>\n<dd>\n<p>Another\ndefinition</p>\n<p>Even more text</p>\n</dd>\n</dl>\n</div>\n</li>\n</ul>",
+  "extensions": [
+   "admonition",
+   "def_list"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_admonition.TestAdmonition.test_with_big_lists",
+  "source": "- List\n\n    !!! note \"Admontion\"\n\n        - Paragraph\n\n            Paragraph\n\n        - Paragraph\n\n            paragraph",
+  "expected": "<ul>\n<li>\n<p>List</p>\n<div class=\"admonition note\">\n<p class=\"admonition-title\">Admontion</p>\n<ul>\n<li>\n<p>Paragraph</p>\n<p>Paragraph</p>\n</li>\n<li>\n<p>Paragraph</p>\n<p>paragraph</p>\n</li>\n</ul>\n</div>\n</li>\n</ul>",
+  "extensions": [
+   "admonition"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_admonition.TestAdmonition.test_with_complex_lists",
+  "source": "- List\n\n    !!! note \"Admontion\"\n\n        - Paragraph\n\n            !!! note \"Admontion\"\n\n                1. Paragraph\n\n                    Paragraph",
+  "expected": "<ul>\n<li>\n<p>List</p>\n<div class=\"admonition note\">\n<p class=\"admonition-title\">Admontion</p>\n<ul>\n<li>\n<p>Paragraph</p>\n<div class=\"admonition note\">\n<p class=\"admonition-title\">Admontion</p>\n<ol>\n<li>\n<p>Paragraph</p>\n<p>Paragraph</p>\n</li>\n</ol>\n</div>\n</li>\n</ul>\n</div>\n</li>\n</ul>",
+  "extensions": [
+   "admonition"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_admonition.TestAdmonition.test_with_lists",
+  "source": "- List\n\n    !!! note \"Admontion\"\n\n        - Paragraph\n\n            Paragraph",
+  "expected": "<ul>\n<li>\n<p>List</p>\n<div class=\"admonition note\">\n<p class=\"admonition-title\">Admontion</p>\n<ul>\n<li>\n<p>Paragraph</p>\n<p>Paragraph</p>\n</li>\n</ul>\n</div>\n</li>\n</ul>",
+  "extensions": [
+   "admonition"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_admonition.TestAdmonition.test_with_preceding_text",
+  "source": "foo\n**foo**\n!!! note \"Admonition\"",
+  "expected": "<p>foo\n<strong>foo</strong></p>\n<div class=\"admonition note\">\n<p class=\"admonition-title\">Admonition</p>\n</div>",
+  "extensions": [
+   "admonition"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

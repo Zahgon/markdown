@@ -1,0 +1,82 @@
+[
+ {
+  "name": "inline.test_entities.TestEntities.test_decimal_entities",
+  "source": "&#38;",
+  "expected": "<p>&#38;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_decimal_entities",
+  "source": "&#178;",
+  "expected": "<p>&#178;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_false_entities",
+  "source": "&not an entity;",
+  "expected": "<p>&amp;not an entity;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_false_entities",
+  "source": "&#B2;",
+  "expected": "<p>&amp;#B2;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_false_entities",
+  "source": "&#xnothex;",
+  "expected": "<p>&amp;#xnothex;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_hexadecimal_entities",
+  "source": "&#x00026;",
+  "expected": "<p>&#x00026;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_hexadecimal_entities",
+  "source": "&#xB2;",
+  "expected": "<p>&#xB2;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_named_entities",
+  "source": "&amp;",
+  "expected": "<p>&amp;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_named_entities",
+  "source": "&sup2;",
+  "expected": "<p>&sup2;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "inline.test_entities.TestEntities.test_named_entities",
+  "source": "&Aacute;",
+  "expected": "<p>&Aacute;</p>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

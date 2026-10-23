@@ -1,0 +1,142 @@
+[
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_align_columns",
+  "source": "| Item      | Value |\n| :-------- | -----:|\n| Computer  | $1600 |\n| Phone     |   $12 |\n| Pipe      |    $1 |",
+  "expected": "<table>\n<thead>\n<tr>\n<th style=\"text-align: left;\">Item</th>\n<th style=\"text-align: right;\">Value</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: left;\">Computer</td>\n<td style=\"text-align: right;\">$1600</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\">Phone</td>\n<td style=\"text-align: right;\">$12</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\">Pipe</td>\n<td style=\"text-align: right;\">$1</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_align_three",
+  "source": "|foo|bar|baz|\n|:--|:-:|--:|\n|   | Q |   |\n|W  |   |  W|",
+  "expected": "<table>\n<thead>\n<tr>\n<th style=\"text-align: left;\">foo</th>\n<th style=\"text-align: center;\">bar</th>\n<th style=\"text-align: right;\">baz</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: left;\"></td>\n<td style=\"text-align: center;\">Q</td>\n<td style=\"text-align: right;\"></td>\n</tr>\n<tr>\n<td style=\"text-align: left;\">W</td>\n<td style=\"text-align: center;\"></td>\n<td style=\"text-align: right;\">W</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_both_sides",
+  "source": "| First Header  | Second Header |\n| ------------- | ------------- |\n| Content Cell  | Content Cell  |\n| Content Cell  | Content Cell  |",
+  "expected": "<table>\n<thead>\n<tr>\n<th>First Header</th>\n<th>Second Header</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Content Cell</td>\n<td>Content Cell</td>\n</tr>\n<tr>\n<td>Content Cell</td>\n<td>Content Cell</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_code_block_table",
+  "source": "Four spaces is a code block:\n\n    First Header | Second Header\n    ------------ | -------------\n    Content Cell | Content Cell\n    Content Cell | Content Cell\n\n| First Header | Second Header |\n| ------------ | ------------- |",
+  "expected": "<p>Four spaces is a code block:</p>\n<pre><code>First Header | Second Header\n------------ | -------------\nContent Cell | Content Cell\nContent Cell | Content Cell\n</code></pre>\n<table>\n<thead>\n<tr>\n<th>First Header</th>\n<th>Second Header</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_empty_cells",
+  "source": "\n   | Second Header\n------------- | -------------\n   | Content Cell\nContent Cell  |  \n",
+  "expected": "<table>\n<thead>\n<tr>\n<th> </th>\n<th>Second Header</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td> </td>\n<td>Content Cell</td>\n</tr>\n<tr>\n<td>Content Cell</td>\n<td> </td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_inline_code_blocks",
+  "source": "More inline code block tests\n\nColumn 1 | Column 2 | Column 3\n---------|----------|---------\nword 1   | word 2   | word 3\nword 1   | `word 2` | word 3\nword 1   | \\`word 2 | word 3\nword 1   | `word 2 | word 3\nword 1   | `word |2` | word 3\nwords    |`` some | code `` | more words\nwords    |``` some | code ``` | more words\nwords    |```` some | code ```` | more words\nwords    |`` some ` | ` code `` | more words\nwords    |``` some ` | ` code ``` | more words\nwords    |```` some ` | ` code ```` | more words",
+  "expected": "<p>More inline code block tests</p>\n<table>\n<thead>\n<tr>\n<th>Column 1</th>\n<th>Column 2</th>\n<th>Column 3</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>word 1</td>\n<td>word 2</td>\n<td>word 3</td>\n</tr>\n<tr>\n<td>word 1</td>\n<td><code>word 2</code></td>\n<td>word 3</td>\n</tr>\n<tr>\n<td>word 1</td>\n<td>`word 2</td>\n<td>word 3</td>\n</tr>\n<tr>\n<td>word 1</td>\n<td>`word 2</td>\n<td>word 3</td>\n</tr>\n<tr>\n<td>word 1</td>\n<td><code>word |2</code></td>\n<td>word 3</td>\n</tr>\n<tr>\n<td>words</td>\n<td><code>some | code</code></td>\n<td>more words</td>\n</tr>\n<tr>\n<td>words</td>\n<td><code>some | code</code></td>\n<td>more words</td>\n</tr>\n<tr>\n<td>words</td>\n<td><code>some | code</code></td>\n<td>more words</td>\n</tr>\n<tr>\n<td>words</td>\n<td><code>some ` | ` code</code></td>\n<td>more words</td>\n</tr>\n<tr>\n<td>words</td>\n<td><code>some ` | ` code</code></td>\n<td>more words</td>\n</tr>\n<tr>\n<td>words</td>\n<td><code>some ` | ` code</code></td>\n<td>more words</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_issue_440",
+  "source": "A test for issue #440:\n\nfoo | bar\n--- | ---\nfoo | (`bar`) and `baz`.",
+  "expected": "<p>A test for issue #440:</p>\n<table>\n<thead>\n<tr>\n<th>foo</th>\n<th>bar</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>foo</td>\n<td>(<code>bar</code>) and <code>baz</code>.</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_issue_449",
+  "source": "Add tests for issue #449\n\nOdd backticks | Even backticks\n------------ | -------------\n``[!\\\"\\#$%&'()*+,\\-./:;<=>?@\\[\\\\\\]^_`{|}~]`` | ``[!\\\"\\#$%&'()*+,\\-./:;<=>?@\\[\\\\\\]^`_`{|}~]``\n\nEscapes | More Escapes\n------- | ------\n`` `\\`` | `\\`\n\nOnly the first backtick can be escaped\n\nEscaped | Bacticks\n------- | ------\n\\`` \\`  | \\`\\`\n\nTest escaped pipes\n\nColumn 1 | Column 2\n-------- | --------\n`|` \\|   | Pipes are okay in code and escaped. \\|\n\n| Column 1 | Column 2 |\n| -------- | -------- |\n| row1     | row1    \\|\n| row2     | row2     |\n\nTest header escapes\n\n| `` `\\`` \\| | `\\` \\|\n| ---------- | ---- |\n| row1       | row1 |\n| row2       | row2 |\n\nEscaped pipes in format row should not be a table\n\n| Column1   | Column2 |\n| ------- \\|| ------- |\n| row1      | row1    |\n| row2      | row2    |\n\nTest escaped code in Table\n\nShould not be code | Should be code\n------------------ | --------------\n\\`Not code\\`       | \\\\`code`\n\\\\\\`Not code\\\\\\`   | \\\\\\\\`code`",
+  "expected": "<p>Add tests for issue #449</p>\n<table>\n<thead>\n<tr>\n<th>Odd backticks</th>\n<th>Even backticks</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>[!\\\"\\#$%&amp;'()*+,\\-./:;&lt;=&gt;?@\\[\\\\\\]^_`{|}~]</code></td>\n<td><code>[!\\\"\\#$%&amp;'()*+,\\-./:;&lt;=&gt;?@\\[\\\\\\]^`_`{|}~]</code></td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>Escapes</th>\n<th>More Escapes</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>`\\</code></td>\n<td><code>\\</code></td>\n</tr>\n</tbody>\n</table>\n<p>Only the first backtick can be escaped</p>\n<table>\n<thead>\n<tr>\n<th>Escaped</th>\n<th>Bacticks</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>`<code>\\</code></td>\n<td>``</td>\n</tr>\n</tbody>\n</table>\n<p>Test escaped pipes</p>\n<table>\n<thead>\n<tr>\n<th>Column 1</th>\n<th>Column 2</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>|</code> |</td>\n<td>Pipes are okay in code and escaped. |</td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>Column 1</th>\n<th>Column 2</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>row1</td>\n<td>row1    |</td>\n</tr>\n<tr>\n<td>row2</td>\n<td>row2</td>\n</tr>\n</tbody>\n</table>\n<p>Test header escapes</p>\n<table>\n<thead>\n<tr>\n<th><code>`\\</code> |</th>\n<th><code>\\</code> |</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>row1</td>\n<td>row1</td>\n</tr>\n<tr>\n<td>row2</td>\n<td>row2</td>\n</tr>\n</tbody>\n</table>\n<p>Escaped pipes in format row should not be a table</p>\n<p>| Column1   | Column2 |\n| ------- || ------- |\n| row1      | row1    |\n| row2      | row2    |</p>\n<p>Test escaped code in Table</p>\n<table>\n<thead>\n<tr>\n<th>Should not be code</th>\n<th>Should be code</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>`Not code`</td>\n<td>\\<code>code</code></td>\n</tr>\n<tr>\n<td>\\`Not code\\`</td>\n<td>\\\\<code>code</code></td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_lists_not_tables",
+  "source": "Lists are not tables\n\n - this | should | not\n - be | a | table",
+  "expected": "<p>Lists are not tables</p>\n<ul>\n<li>this | should | not</li>\n<li>be | a | table</li>\n</ul>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_no_sides",
+  "source": "First Header  | Second Header\n------------- | -------------\nContent Cell  | Content Cell\nContent Cell  | Content Cell",
+  "expected": "<table>\n<thead>\n<tr>\n<th>First Header</th>\n<th>Second Header</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Content Cell</td>\n<td>Content Cell</td>\n</tr>\n<tr>\n<td>Content Cell</td>\n<td>Content Cell</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_single_column_tables",
+  "source": "Single column tables\n\n| Is a Table |\n| ---------- |\n\n| Is a Table\n| ----------\n\nIs a Table |\n---------- |\n\n| Is a Table |\n| ---------- |\n| row        |\n\n| Is a Table\n| ----------\n| row\n\nIs a Table |\n---------- |\nrow        |\n\n| Is not a Table\n--------------\n| row\n\nIs not a Table |\n--------------\nrow            |\n\n| Is not a Table\n| --------------\nrow\n\nIs not a Table |\n-------------- |\nrow",
+  "expected": "<p>Single column tables</p>\n<table>\n<thead>\n<tr>\n<th>Is a Table</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td></td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>Is a Table</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td></td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>Is a Table</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td></td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>Is a Table</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>row</td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>Is a Table</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>row</td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>Is a Table</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>row</td>\n</tr>\n</tbody>\n</table>\n<h2>| Is not a Table</h2>\n<p>| row</p>\n<h2>Is not a Table |</h2>\n<p>row            |</p>\n<p>| Is not a Table\n| --------------\nrow</p>\n<p>Is not a Table |\n-------------- |\nrow</p>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_styles_in_tables",
+  "source": "| Function name | Description                    |\n| ------------- | ------------------------------ |\n| `help()`      | Display the help window.       |\n| `destroy()`   | **Destroy your computer!**     |",
+  "expected": "<table>\n<thead>\n<tr>\n<th>Function name</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>help()</code></td>\n<td>Display the help window.</td>\n</tr>\n<tr>\n<td><code>destroy()</code></td>\n<td><strong>Destroy your computer!</strong></td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_three_columns",
+  "source": "foo|bar|baz\n---|---|---\n   | Q |\n W |   | W",
+  "expected": "<table>\n<thead>\n<tr>\n<th>foo</th>\n<th>bar</th>\n<th>baz</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td></td>\n<td>Q</td>\n<td></td>\n</tr>\n<tr>\n<td>W</td>\n<td></td>\n<td>W</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "extensions.test_tables.TestTableBlocks.test_three_spaces_prefix",
+  "source": "Three spaces in front of a table:\n\n   First Header | Second Header\n   ------------ | -------------\n   Content Cell | Content Cell\n   Content Cell | Content Cell\n\n   | First Header | Second Header |\n   | ------------ | ------------- |\n   | Content Cell | Content Cell  |\n   | Content Cell | Content Cell  |",
+  "expected": "<p>Three spaces in front of a table:</p>\n<table>\n<thead>\n<tr>\n<th>First Header</th>\n<th>Second Header</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Content Cell</td>\n<td>Content Cell</td>\n</tr>\n<tr>\n<td>Content Cell</td>\n<td>Content Cell</td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>First Header</th>\n<th>Second Header</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Content Cell</td>\n<td>Content Cell</td>\n</tr>\n<tr>\n<td>Content Cell</td>\n<td>Content Cell</td>\n</tr>\n</tbody>\n</table>",
+  "extensions": [
+   "tables"
+  ],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]

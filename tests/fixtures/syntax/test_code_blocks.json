@@ -1,0 +1,50 @@
+[
+ {
+  "name": "blocks.test_code_blocks.TestCodeBlocks.test_codeblock_escape",
+  "source": "    <foo & bar>",
+  "expected": "<pre><code>&lt;foo &amp; bar&gt;\n</code></pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_code_blocks.TestCodeBlocks.test_codeblock_second_line",
+  "source": "\n    Code on the second line",
+  "expected": "<pre><code>Code on the second line\n</code></pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_code_blocks.TestCodeBlocks.test_codeblock_with_blankline",
+  "source": "    # Line 1\n\n    # Line 2\n",
+  "expected": "<pre><code># Line 1\n\n# Line 2\n</code></pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_code_blocks.TestCodeBlocks.test_multiline_codeblock",
+  "source": "    # Line 1\n    # Line 2\n",
+  "expected": "<pre><code># Line 1\n# Line 2\n</code></pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_code_blocks.TestCodeBlocks.test_spaced_codeblock",
+  "source": "    # A code block.",
+  "expected": "<pre><code># A code block.\n</code></pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ },
+ {
+  "name": "blocks.test_code_blocks.TestCodeBlocks.test_tabbed_codeblock",
+  "source": "\t# A code block.",
+  "expected": "<pre><code># A code block.\n</code></pre>",
+  "extensions": [],
+  "configs": {},
+  "output_format": "xhtml"
+ }
+]
